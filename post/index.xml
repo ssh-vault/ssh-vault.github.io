@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on ssh-vault</title>
+    <link>https://ssh-vault.com/post/</link>
+    <description>Recent content in Posts on ssh-vault</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 20 Sep 2016 04:00:00 +0000</lastBuildDate>
+    <atom:link href="https://ssh-vault.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>How it works</title>
+      <link>https://ssh-vault.com/post/how-it-works/</link>
+      <pubDate>Tue, 20 Sep 2016 04:00:00 +0000</pubDate>
+      
+      <guid>https://ssh-vault.com/post/how-it-works/</guid>
+      <description>
+
+&lt;p&gt;&lt;strong&gt;ssh-vault&lt;/strong&gt; will randomly create a password and will use that
+password to encrypt the contents of the vault using a
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Symmetric-key_algorithm&#34;&gt;symmetric cipher&lt;/a&gt; AES256,
+the password later will be encrypted using the the ssh public
+&lt;a href=&#34;https://en.wikipedia.org/wiki/RSA_(cryptosystem)&#34;&gt;RSA&lt;/a&gt; key of the receiver.&lt;/p&gt;
+
+&lt;p&gt;This helps to simplify the share of sensitive data across teams, developers, or
+either to store things on a public repository by just using their public ssh
+keys.&lt;/p&gt;
+
+&lt;p&gt;The option &lt;code&gt;-u&lt;/code&gt; takes advantage of the ssh public keys stored in github:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; https://github.com/&amp;lt;username&amp;gt;.keys
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This helps to speed up more things since the vaults can be created without even
+asking a user for his private key, basically helps to work asynchronously, the
+only requirement would be that the receiver has an ssh-rsa public key/account on
+github.com&lt;/p&gt;
+
+&lt;h1 id=&#34;creating-a-vault-encryption&#34;&gt;Creating a vault (encryption)&lt;/h1&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;p&gt;User Alice wants to send something to user Bob&lt;/p&gt;
+
+&lt;p&gt;Alice will type:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ssh-vault -u bob create vault
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;By doing this Alice will fetch for bob ssh public keys stored in github
+&lt;a href=&#34;https://github.com/bob.keys&#34;&gt;https://github.com/bob.keys&lt;/a&gt; and create a vault that only bob will be available
+to decrypt by using his private ssh key&lt;/p&gt;
+
+&lt;p&gt;In case Alice want&amp;rsquo;s to use a different key, could do:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ssh-vault -k /path/to/bob/id_rsa.pub create vault
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;edit-view-a-vault-decryption&#34;&gt;Edit/View a vault (decryption)&lt;/h1&gt;
+
+&lt;p&gt;Continuing with the previous example, if Bob want to see what Alice sent to him,
+just need to type:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ssh-vault view vault
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;He will be prompted for his ssh-key private password, or if he wants to use
+another private key, he can type:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ssh-vault -k ~/.ssh/id_rsa_other view vault
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

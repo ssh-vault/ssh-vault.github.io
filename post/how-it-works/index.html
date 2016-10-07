@@ -1,0 +1,203 @@
+    <!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="ssh-vault">
+		<meta name="description" content="encrypt/decrypt using ssh keys that implements a follow pid feature and multiple logging options">
+		<meta name="keywords" content="encrypt, decrypt, ssh, rsa, openssl">
+		<meta name="generator" content="Hugo 0.16" />
+		<title>How it works &middot; ssh-vault</title>
+        <link rel="apple-touch-icon" sizes="57x57" href="https://ssh-vault.com/images/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="https://ssh-vault.com/images/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="https://ssh-vault.com/images/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="https://ssh-vault.com/images/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="https://ssh-vault.com/images/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="https://ssh-vault.com/images/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="https://ssh-vault.com/images/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="https://ssh-vault.com/images/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="https://ssh-vault.com/images/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="https://ssh-vault.com/images/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://ssh-vault.com/images/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="https://ssh-vault.com/images/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://ssh-vault.com/images/favicon-16x16.png">
+		<link rel="shortcut icon" href="https://ssh-vault.com/images/favicon.ico">
+		<link rel="stylesheet" href="https://ssh-vault.com/css/style.css">
+		<link rel="stylesheet" href="https://ssh-vault.com/css/highlight.css">
+		
+
+		
+		<link rel="stylesheet" href="https://ssh-vault.com/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://ssh-vault.com/index.xml" rel="alternate" type="application/rss+xml" title="ssh-vault" />
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://ssh-vault.com/'> <span class="arrow">←</span>Home</a>
+	
+
+	
+		<a href="https://github.com/ssh-vault/">Github</a>
+		<a href="https://github.com/ssh-vault/ssh-vault/issues">Issues</a>
+		<a href='https://ssh-vault.com/about'>About</a>
+	
+
+	
+	<a class="cta" href="https://ssh-vault.com/index.xml">Subscribe</a>
+	
+</nav>
+
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>How it works</h1>
+                    <h2 class="headline">
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    
+
+<p><strong>ssh-vault</strong> will randomly create a password and will use that
+password to encrypt the contents of the vault using a
+<a href="https://en.wikipedia.org/wiki/Symmetric-key_algorithm">symmetric cipher</a> AES256,
+the password later will be encrypted using the the ssh public
+<a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">RSA</a> key of the receiver.</p>
+
+<p>This helps to simplify the share of sensitive data across teams, developers, or
+either to store things on a public repository by just using their public ssh
+keys.</p>
+
+<p>The option <code>-u</code> takes advantage of the ssh public keys stored in github:</p>
+
+<pre><code> https://github.com/&lt;username&gt;.keys
+</code></pre>
+
+<p>This helps to speed up more things since the vaults can be created without even
+asking a user for his private key, basically helps to work asynchronously, the
+only requirement would be that the receiver has an ssh-rsa public key/account on
+github.com</p>
+
+<h1 id="creating-a-vault-encryption">Creating a vault (encryption)</h1>
+
+<p>Example:</p>
+
+<p>User Alice wants to send something to user Bob</p>
+
+<p>Alice will type:</p>
+
+<pre><code>$ ssh-vault -u bob create vault
+</code></pre>
+
+<p>By doing this Alice will fetch for bob ssh public keys stored in github
+<a href="https://github.com/bob.keys">https://github.com/bob.keys</a> and create a vault that only bob will be available
+to decrypt by using his private ssh key</p>
+
+<p>In case Alice want&rsquo;s to use a different key, could do:</p>
+
+<pre><code>$ ssh-vault -k /path/to/bob/id_rsa.pub create vault
+</code></pre>
+
+<h1 id="edit-view-a-vault-decryption">Edit/View a vault (decryption)</h1>
+
+<p>Continuing with the previous example, if Bob want to see what Alice sent to him,
+just need to type:</p>
+
+<pre><code>$ ssh-vault view vault
+</code></pre>
+
+<p>He will be prompted for his ssh-key private password, or if he wants to use
+another private key, he can type:</p>
+
+<pre><code>$ ssh-vault -k ~/.ssh/id_rsa_other view vault
+</code></pre>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                
+                    
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fssh-vault.com%2fpost%2fhow-it-works%2f - How%20it%20works "><span class="icon-twitter"> Tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>Read more</h3>
+    
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://ssh-vault.com/post/how-it-works/">How it works</a>
+        </li>
+        
+   
+</ul>
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://github.com/ssh-vault">
+        circlegithub
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://ssh-vault.com/js/main.js"></script>
+<script src="https://ssh-vault.com/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-79517076-4', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+    </body>
+</html>

@@ -1,2 +1,1 @@
-# ssh-vault.github.io
-project web site
+https://ssh-vault.com
