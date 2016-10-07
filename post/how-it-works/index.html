@@ -66,8 +66,7 @@
                 <section id="post-body">
                     
 
-<p><strong>ssh-vault</strong> will randomly create a password and will use that
-password to encrypt the contents of the vault using a
+<p><strong>ssh-vault</strong> will randomly create a password and use it for encrypt the contents of the vault using a
 <a href="https://en.wikipedia.org/wiki/Symmetric-key_algorithm">symmetric cipher</a> AES256,
 the password later will be encrypted using the the ssh public
 <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">RSA</a> key of the receiver.</p>
@@ -81,9 +80,9 @@ keys.</p>
 <pre><code> https://github.com/&lt;username&gt;.keys
 </code></pre>
 
-<p>This helps to speed up more things since the vaults can be created without even
-asking a user for his private key, basically helps to work asynchronously, the
-only requirement would be that the receiver has an ssh-rsa public key/account on
+<p>Speed up more things since the vaults can be created without even
+asking a user for his private ssh key, basically helps to work asynchronously, the
+only requirement would be that the receiver needs to have an ssh-rsa public key/account on
 github.com</p>
 
 <h1 id="creating-a-vault-encryption">Creating a vault (encryption)</h1>

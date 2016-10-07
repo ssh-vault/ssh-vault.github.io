@@ -17,8 +17,7 @@
       <guid>https://ssh-vault.com/post/how-it-works/</guid>
       <description>
 
-&lt;p&gt;&lt;strong&gt;ssh-vault&lt;/strong&gt; will randomly create a password and will use that
-password to encrypt the contents of the vault using a
+&lt;p&gt;&lt;strong&gt;ssh-vault&lt;/strong&gt; will randomly create a password and use it for encrypt the contents of the vault using a
 &lt;a href=&#34;https://en.wikipedia.org/wiki/Symmetric-key_algorithm&#34;&gt;symmetric cipher&lt;/a&gt; AES256,
 the password later will be encrypted using the the ssh public
 &lt;a href=&#34;https://en.wikipedia.org/wiki/RSA_(cryptosystem)&#34;&gt;RSA&lt;/a&gt; key of the receiver.&lt;/p&gt;
@@ -32,9 +31,9 @@ keys.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt; https://github.com/&amp;lt;username&amp;gt;.keys
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;This helps to speed up more things since the vaults can be created without even
-asking a user for his private key, basically helps to work asynchronously, the
-only requirement would be that the receiver has an ssh-rsa public key/account on
+&lt;p&gt;Speed up more things since the vaults can be created without even
+asking a user for his private ssh key, basically helps to work asynchronously, the
+only requirement would be that the receiver needs to have an ssh-rsa public key/account on
 github.com&lt;/p&gt;
 
 &lt;h1 id=&#34;creating-a-vault-encryption&#34;&gt;Creating a vault (encryption)&lt;/h1&gt;
