@@ -66,24 +66,25 @@
                 <section id="post-body">
                     
 
-<p><strong>ssh-vault</strong> will randomly create a password and use it for encrypt the contents of the vault using a
-<a href="https://en.wikipedia.org/wiki/Symmetric-key_algorithm">symmetric cipher</a> AES256,
-the password later will be encrypted using the the ssh public
-<a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">RSA</a> key of the receiver.</p>
+<p><strong>ssh-vault</strong> will randomly create a password and use it
+for encrypting the contents of the vault using a
+<a href="https://en.wikipedia.org/wiki/Symmetric-key_algorithm">symmetric cipher</a>
+AES256, the password later will be encrypted using the
+<a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">ssh-rsa</a> public key of the
+receiver.</p>
 
-<p>This helps to simplify the share of sensitive data across teams, developers, or
-either to store things on a public repository by just using their public ssh
-keys.</p>
+<p>This simplify the share of sensitive data across developers, teams, or either to
+store things on a public repository by just using ssh keys.</p>
 
-<p>The option <code>-u</code> takes advantage of the ssh public keys stored in github:</p>
+<p>The option <code>-u</code> will fetch the receiver ssh-rsa public from github:</p>
 
 <pre><code> https://github.com/&lt;username&gt;.keys
 </code></pre>
 
-<p>Speed up more things since the vaults can be created without even
-asking a user for his private ssh key, basically helps to work asynchronously, the
-only requirement would be that the receiver needs to have an ssh-rsa public key/account on
-github.com</p>
+<p>This helps to create a vault very straight forward, since the both the sender
+and receiver don&rsquo;t need to exchange their keys before in order to share data,
+therefor this helps to work asynchronously, the only requirement is that the
+receiver needs to have an ssh-rsa public key/account on github.com</p>
 
 <h1 id="creating-a-vault-encryption">Creating a vault (encryption)</h1>
 

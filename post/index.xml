@@ -17,24 +17,25 @@
       <guid>https://ssh-vault.com/post/how-it-works/</guid>
       <description>
 
-&lt;p&gt;&lt;strong&gt;ssh-vault&lt;/strong&gt; will randomly create a password and use it for encrypt the contents of the vault using a
-&lt;a href=&#34;https://en.wikipedia.org/wiki/Symmetric-key_algorithm&#34;&gt;symmetric cipher&lt;/a&gt; AES256,
-the password later will be encrypted using the the ssh public
-&lt;a href=&#34;https://en.wikipedia.org/wiki/RSA_(cryptosystem)&#34;&gt;RSA&lt;/a&gt; key of the receiver.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ssh-vault&lt;/strong&gt; will randomly create a password and use it
+for encrypting the contents of the vault using a
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Symmetric-key_algorithm&#34;&gt;symmetric cipher&lt;/a&gt;
+AES256, the password later will be encrypted using the
+&lt;a href=&#34;https://en.wikipedia.org/wiki/RSA_(cryptosystem)&#34;&gt;ssh-rsa&lt;/a&gt; public key of the
+receiver.&lt;/p&gt;
 
-&lt;p&gt;This helps to simplify the share of sensitive data across teams, developers, or
-either to store things on a public repository by just using their public ssh
-keys.&lt;/p&gt;
+&lt;p&gt;This simplify the share of sensitive data across developers, teams, or either to
+store things on a public repository by just using ssh keys.&lt;/p&gt;
 
-&lt;p&gt;The option &lt;code&gt;-u&lt;/code&gt; takes advantage of the ssh public keys stored in github:&lt;/p&gt;
+&lt;p&gt;The option &lt;code&gt;-u&lt;/code&gt; will fetch the receiver ssh-rsa public from github:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt; https://github.com/&amp;lt;username&amp;gt;.keys
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Speed up more things since the vaults can be created without even
-asking a user for his private ssh key, basically helps to work asynchronously, the
-only requirement would be that the receiver needs to have an ssh-rsa public key/account on
-github.com&lt;/p&gt;
+&lt;p&gt;This helps to create a vault very straight forward, since the both the sender
+and receiver don&amp;rsquo;t need to exchange their keys before in order to share data,
+therefor this helps to work asynchronously, the only requirement is that the
+receiver needs to have an ssh-rsa public key/account on github.com&lt;/p&gt;
 
 &lt;h1 id=&#34;creating-a-vault-encryption&#34;&gt;Creating a vault (encryption)&lt;/h1&gt;
 
