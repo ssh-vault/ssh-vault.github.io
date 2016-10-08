@@ -76,30 +76,31 @@ receiver.</p>
 <p>This simplify the share of sensitive data across developers, teams, or either to
 store things on a public repository by just using ssh keys.</p>
 
-<p>The option <code>-u</code> will fetch the receiver ssh-rsa public from github:</p>
+<p>The option <code>-u &lt;username&gt;</code> will fetch the receiver ssh-rsa public from github:</p>
 
 <pre><code> https://github.com/&lt;username&gt;.keys
 </code></pre>
 
-<p>This helps to create a vault very straight forward, since the both the sender
-and receiver don&rsquo;t need to exchange their keys before in order to share data,
-therefor this helps to work asynchronously, the only requirement is that the
-receiver needs to have an ssh-rsa public key/account on github.com</p>
+<p>This helps to create a vault very straight forward, since both the sender and
+receiver don&rsquo;t need to exchange their keys before in order to share sensitive
+data, therefore this helps to work asynchronously</p>
+
+<p>The current requirement for using the option <code>-u &lt;username&gt;</code>
+is to have an github.com account with a SSH key, more info here:
+<a href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/">https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/</a></p>
+
+<p>An <a href="https://en.wikipedia.org/wiki/Alice_and_Bob">Alice and Bob</a> example could be
+the best way to undestand how ssh-vault works.</p>
 
 <h1 id="creating-a-vault-encryption">Creating a vault (encryption)</h1>
 
-<p>Example:</p>
-
-<p>User Alice wants to send something to user Bob</p>
-
-<p>Alice will type:</p>
+<p>If Alice wants to send something to Bob, Alice will type in a terminal:</p>
 
 <pre><code>$ ssh-vault -u bob create vault
 </code></pre>
 
-<p>By doing this Alice will fetch for bob ssh public keys stored in github
-<a href="https://github.com/bob.keys">https://github.com/bob.keys</a> and create a vault that only bob will be available
-to decrypt by using his private ssh key</p>
+<p>Alice know that Bob has an account in github.com therefore by using the option
+<code>-u bob</code>, Alice gets Bob&rsquo;s ssh-rsa public key</p>
 
 <p>In case Alice want&rsquo;s to use a different key, could do:</p>
 
@@ -108,17 +109,28 @@ to decrypt by using his private ssh key</p>
 
 <h1 id="edit-view-a-vault-decryption">Edit/View a vault (decryption)</h1>
 
-<p>Continuing with the previous example, if Bob want to see what Alice sent to him,
-just need to type:</p>
+<p>Bob can use his sha-rsa private key to decrypt the vault by doing:</p>
 
 <pre><code>$ ssh-vault view vault
 </code></pre>
 
-<p>He will be prompted for his ssh-key private password, or if he wants to use
-another private key, he can type:</p>
+<p>He will be prompted for his ssh-key private password if required or if he wants to use
+another private key, he do something like:</p>
 
 <pre><code>$ ssh-vault -k ~/.ssh/id_rsa_other view vault
 </code></pre>
+
+<p>If Bob would like to send something back to Alice, he would do:</p>
+
+<pre><code>$ ssh-vault -u alice create vault
+</code></pre>
+
+<p>and so on.</p>
+
+<h1 id="shared-vault">Shared vault</h1>
+
+<p>In case a team needs to share a vault, the best way could be to share the pair
+of ssh keys (public/private) within the team members.</p>
 
                 </section>
             </article>

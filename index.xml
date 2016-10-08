@@ -54,30 +54,31 @@ receiver.&lt;/p&gt;
 &lt;p&gt;This simplify the share of sensitive data across developers, teams, or either to
 store things on a public repository by just using ssh keys.&lt;/p&gt;
 
-&lt;p&gt;The option &lt;code&gt;-u&lt;/code&gt; will fetch the receiver ssh-rsa public from github:&lt;/p&gt;
+&lt;p&gt;The option &lt;code&gt;-u &amp;lt;username&amp;gt;&lt;/code&gt; will fetch the receiver ssh-rsa public from github:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt; https://github.com/&amp;lt;username&amp;gt;.keys
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;This helps to create a vault very straight forward, since the both the sender
-and receiver don&amp;rsquo;t need to exchange their keys before in order to share data,
-therefor this helps to work asynchronously, the only requirement is that the
-receiver needs to have an ssh-rsa public key/account on github.com&lt;/p&gt;
+&lt;p&gt;This helps to create a vault very straight forward, since both the sender and
+receiver don&amp;rsquo;t need to exchange their keys before in order to share sensitive
+data, therefore this helps to work asynchronously&lt;/p&gt;
+
+&lt;p&gt;The current requirement for using the option &lt;code&gt;-u &amp;lt;username&amp;gt;&lt;/code&gt;
+is to have an github.com account with a SSH key, more info here:
+&lt;a href=&#34;https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/&#34;&gt;https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;An &lt;a href=&#34;https://en.wikipedia.org/wiki/Alice_and_Bob&#34;&gt;Alice and Bob&lt;/a&gt; example could be
+the best way to undestand how ssh-vault works.&lt;/p&gt;
 
 &lt;h1 id=&#34;creating-a-vault-encryption&#34;&gt;Creating a vault (encryption)&lt;/h1&gt;
 
-&lt;p&gt;Example:&lt;/p&gt;
-
-&lt;p&gt;User Alice wants to send something to user Bob&lt;/p&gt;
-
-&lt;p&gt;Alice will type:&lt;/p&gt;
+&lt;p&gt;If Alice wants to send something to Bob, Alice will type in a terminal:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ ssh-vault -u bob create vault
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;By doing this Alice will fetch for bob ssh public keys stored in github
-&lt;a href=&#34;https://github.com/bob.keys&#34;&gt;https://github.com/bob.keys&lt;/a&gt; and create a vault that only bob will be available
-to decrypt by using his private ssh key&lt;/p&gt;
+&lt;p&gt;Alice know that Bob has an account in github.com therefore by using the option
+&lt;code&gt;-u bob&lt;/code&gt;, Alice gets Bob&amp;rsquo;s ssh-rsa public key&lt;/p&gt;
 
 &lt;p&gt;In case Alice want&amp;rsquo;s to use a different key, could do:&lt;/p&gt;
 
@@ -86,17 +87,28 @@ to decrypt by using his private ssh key&lt;/p&gt;
 
 &lt;h1 id=&#34;edit-view-a-vault-decryption&#34;&gt;Edit/View a vault (decryption)&lt;/h1&gt;
 
-&lt;p&gt;Continuing with the previous example, if Bob want to see what Alice sent to him,
-just need to type:&lt;/p&gt;
+&lt;p&gt;Bob can use his sha-rsa private key to decrypt the vault by doing:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ ssh-vault view vault
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;He will be prompted for his ssh-key private password, or if he wants to use
-another private key, he can type:&lt;/p&gt;
+&lt;p&gt;He will be prompted for his ssh-key private password if required or if he wants to use
+another private key, he do something like:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ ssh-vault -k ~/.ssh/id_rsa_other view vault
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If Bob would like to send something back to Alice, he would do:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ssh-vault -u alice create vault
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and so on.&lt;/p&gt;
+
+&lt;h1 id=&#34;shared-vault&#34;&gt;Shared vault&lt;/h1&gt;
+
+&lt;p&gt;In case a team needs to share a vault, the best way could be to share the pair
+of ssh keys (public/private) within the team members.&lt;/p&gt;
 </description>
     </item>
     
