@@ -20,7 +20,15 @@
 &lt;h1 id=&#34;what-is-ssh-vault&#34;&gt;What is ssh-vault?&lt;/h1&gt;
 
 &lt;p&gt;A command line tool (cli) for creating encrypted files &amp;ldquo;vaults&amp;rdquo; using ssh
-[rsa](&lt;a href=&#34;https://en.wikipedia.org/wiki/RSA_(cryptosystem&#34;&gt;https://en.wikipedia.org/wiki/RSA_(cryptosystem&lt;/a&gt;) keys for encrypt/decrypt.&lt;/p&gt;
+&lt;a href=&#34;https://en.wikipedia.org/wiki/RSA_(cryptosystem)&#34;&gt;rsa&lt;/a&gt; keys for encrypt/decrypt.&lt;/p&gt;
+
+&lt;p&gt;A vault password is encrypted using the public ssh key of the receiver and
+the main data of the vault using AES256, in order to see/decrypt the vault
+contentes, the receiver will need to use his private key &amp;amp; password in case of
+needed to be available to edit/view the contents.&lt;/p&gt;
+
+&lt;p&gt;You can learn more about generaring an SSH key here:
+&lt;a href=&#34;https://help.github.com/articles/generating-an-ssh-key/&#34;&gt;https://help.github.com/articles/generating-an-ssh-key/&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;why&#34;&gt;Why ?&lt;/h2&gt;
 
