@@ -85,5 +85,38 @@ of ssh keys (public/private) within the team members.&lt;/p&gt;
 </description>
     </item>
     
+    <item>
+      <title>fingerprint</title>
+      <link>https://ssh-vault.com/post/fingerprint/</link>
+      <pubDate>Tue, 20 Sep 2016 03:59:00 +0000</pubDate>
+      
+      <guid>https://ssh-vault.com/post/fingerprint/</guid>
+      <description>
+
+&lt;h1 id=&#34;ssh-key-fingerprint&#34;&gt;SSH key fingerprint&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;ssh-vault&lt;/strong&gt; can be used to print the ssh key
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Public_key_fingerprint&#34;&gt;fingerprint&lt;/a&gt;
+compatible with the format that &lt;a href=&#34;https://aws.amazon.com/&#34;&gt;AWS&lt;/a&gt; uses.&lt;/p&gt;
+
+&lt;p&gt;For example to get the fingerprint for user Bob this could be used:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ssh-vault -u bob -f
+24:c6:6f:33:49:de:d7:bb:77:cf:e9:78:4c:e9:25:5f
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Or for a key that locally stored:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ssh-vault -k /path/to/key -f
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;When using the option &lt;code&gt;-u username&lt;/code&gt; if the user has multiple keys and the
+fingerprint for key 2 is required, this can be used:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ssh-vault -u bob -k 2 -f
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>

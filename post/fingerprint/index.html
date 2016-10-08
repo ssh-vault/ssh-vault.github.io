@@ -1,4 +1,4 @@
-	<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en-us">
 	<head>
 		<meta charset="utf-8">
@@ -8,7 +8,7 @@
 		<meta name="description" content="encrypt/decrypt using ssh keys that implements a follow pid feature and multiple logging options">
 		<meta name="keywords" content="encrypt, decrypt, ssh, rsa, openssl">
 		<meta name="generator" content="Hugo 0.16" />
-		<title>ssh-vault</title>
+		<title>fingerprint &middot; ssh-vault</title>
         <link rel="apple-touch-icon" sizes="57x57" href="https://ssh-vault.com/images/apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="https://ssh-vault.com/images/apple-touch-icon-60x60.png">
         <link rel="apple-touch-icon" sizes="72x72" href="https://ssh-vault.com/images/apple-touch-icon-72x72.png">
@@ -36,9 +36,11 @@
 		
 	</head>
 
-	<body>
-    <nav class="main-nav">
+    <body>
+       <nav class="main-nav">
 	
+	
+		<a href='https://ssh-vault.com/'> <span class="arrow">←</span>Home</a>
 	
 
 	
@@ -52,45 +54,84 @@
 	
 </nav>
 
-    <div class="profile">
-    <section id="wrapper">
-        <header id="header">
-            <a href="https://ssh-vault.com/about"><img id="avatar" class="2x" src="https://ssh-vault.com/img/ssh-vault.png"></a>
-            <h1>ssh-vault</h1>
-            <h2>encrypt/decrypt using ssh keys</h2>
-        </header>
-        <a href='https://bintray.com/nbari/ssh-vault/ssh-vault/_latestVersion'><img src='https://api.bintray.com/packages/nbari/ssh-vault/ssh-vault/images/download.svg' class="badge" alt="download ssh-vault" /></a>
-        <a href="https://travis-ci.org/ssh-vault/ssh-vault"><img src="https://travis-ci.org/ssh-vault/ssh-vault.svg?branch=develop" alt="travis ssh-vault" class="badge"></a>
-        <a href="https://coveralls.io/github/ssh-vault/ssh-vault?branch=develop"><img src="https://coveralls.io/repos/github/ssh-vault/ssh-vault/badge.svg?branch=develop" alt="Coverage Status" class="badge" /></a>
-        <a href="https://goreportcard.com/report/github.com/ssh-vault/ssh-vault"><img src="https://goreportcard.com/badge/github.com/ssh-vault/ssh-vault" alt="Go Report Card" class="badge"></a>
-    </section>
-</div>
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>fingerprint</h1>
+                    <h2 class="headline">
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    
 
-    <section id="wrapper" class="home">
-        <ul id="post-list">
+<h1 id="ssh-key-fingerprint">SSH key fingerprint</h1>
+
+<p><strong>ssh-vault</strong> can be used to print the ssh key
+<a href="https://en.wikipedia.org/wiki/Public_key_fingerprint">fingerprint</a>
+compatible with the format that <a href="https://aws.amazon.com/">AWS</a> uses.</p>
+
+<p>For example to get the fingerprint for user Bob this could be used:</p>
+
+<pre><code>$ ssh-vault -u bob -f
+24:c6:6f:33:49:de:d7:bb:77:cf:e9:78:4c:e9:25:5f
+</code></pre>
+
+<p>Or for a key that locally stored:</p>
+
+<pre><code>$ ssh-vault -k /path/to/key -f
+</code></pre>
+
+<p>When using the option <code>-u username</code> if the user has multiple keys and the
+fingerprint for key 2 is required, this can be used:</p>
+
+<pre><code>$ ssh-vault -u bob -k 2 -f
+</code></pre>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                
+                    
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fssh-vault.com%2fpost%2ffingerprint%2f - fingerprint "><span class="icon-twitter"> Tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>Read more</h3>
     
     
         
-    
-    
-        
-            <li>
-                <a href='https://ssh-vault.com/post/how-it-works/'>How it works <h2></h2></a>
-            </li>
-        
-    
+   
     
         
-            <li>
-                <a href='https://ssh-vault.com/post/fingerprint/'>fingerprint <h2></h2></a>
-            </li>
+        <li>
+            <a href="https://ssh-vault.com/post/how-it-works/">How it works</a>
+        </li>
         
+   
     
+        
+        <li>
+            <a href="https://ssh-vault.com/post/fingerprint/">fingerprint</a>
+        </li>
+        
+   
 </ul>
-        <nav id="post-nav">
-    
-</nav>
-        <footer id="footer">
+            <footer id="footer">
     
         <div id="social">
 
@@ -113,9 +154,9 @@
     </p>
 </footer>
 
-    </section>
+        </section>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://ssh-vault.com/js/main.js"></script>
 <script src="https://ssh-vault.com/js/highlight.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
