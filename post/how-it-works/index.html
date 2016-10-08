@@ -125,7 +125,16 @@ another private key, he do something like:</p>
 <pre><code>$ ssh-vault -u alice create vault
 </code></pre>
 
-<p>and so on.</p>
+<p>But if Alice has more than 2 keys and Bob would like to create a vault using the
+second key, this could be done:</p>
+
+<pre><code>$ ssh-vault -u alice -k 2 create vault
+</code></pre>
+
+<blockquote>
+<p>when using the option -u, the -k N option is used for specifying what key to
+use, in where N is the index of the list of available keys</p>
+</blockquote>
 
 <h1 id="shared-vault">Shared vault</h1>
 
