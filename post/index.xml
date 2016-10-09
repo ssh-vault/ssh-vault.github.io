@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on ssh-vault</title>
-    <link>https://ssh-vault.com/post/</link>
-    <description>Recent content in Posts on ssh-vault</description>
+    <title>Post-rsses on ssh-vault</title>
+    <link>https://ssh-vault.com/post/index.xml</link>
+    <description>Recent content in Post-rsses on ssh-vault</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <copyright> </copyright>
     <lastBuildDate>Tue, 20 Sep 2016 04:00:00 +0000</lastBuildDate>
     <atom:link href="https://ssh-vault.com/post/index.xml" rel="self" type="application/rss+xml" />
     
@@ -125,6 +126,29 @@ fingerprint for key 2 is required, this can be used:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ ssh-vault -u bob -k 2 -f
 a9:55:9b:e3:02:1e:21:a8:2c:f0:29:50:b3:5d:da:bc
 &lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>create vault from stdin</title>
+      <link>https://ssh-vault.com/post/create-vault-from-stdin/</link>
+      <pubDate>Tue, 20 Sep 2016 03:58:37 +0200</pubDate>
+      
+      <guid>https://ssh-vault.com/post/create-vault-from-stdin/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;ssh-vault&lt;/strong&gt; can read from standard input
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Standard_streams#Standard_input_.28stdin.29&#34;&gt;(stdin)&lt;/a&gt;
+when creating a vault.&lt;/p&gt;
+
+&lt;p&gt;Instead of creating a vault from scratch, a vault can be created by using an
+existing file, for example if Alice wants to send a file to Bob she could so
+something like:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cat /path/to/file | ssh-vault -u bob create bobs.vault
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;you can choose any name you want for the vault, in this example the vault contents will be written to file &lt;code&gt;bobs.vault&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 </description>
     </item>
     
