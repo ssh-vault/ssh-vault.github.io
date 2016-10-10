@@ -1,4 +1,4 @@
-	<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en-us">
 	<head>
 		<meta charset="utf-8">
@@ -8,7 +8,7 @@
 		<meta name="description" content="encrypt/decrypt using ssh keys">
 		<meta name="keywords" content="encrypt, decrypt, ssh, rsa, openssl">
 		<meta name="generator" content="Hugo 0.17" />
-		<title>Posts &middot; ssh-vault</title>
+		<title>Group encryption &middot; ssh-vault</title>
         <link rel="apple-touch-icon" sizes="57x57" href="https://ssh-vault.com/images/apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="https://ssh-vault.com/images/apple-touch-icon-60x60.png">
         <link rel="apple-touch-icon" sizes="72x72" href="https://ssh-vault.com/images/apple-touch-icon-72x72.png">
@@ -36,8 +36,8 @@
 		
 	</head>
 
-	<body>
-	<nav class="main-nav">
+    <body>
+       <nav class="main-nav">
 	
 	
 		<a href='https://ssh-vault.com/'> <span class="arrow">←</span>Home</a>
@@ -53,56 +53,104 @@
 	<a class="cta" href="https://ssh-vault.com/index.xml">Subscribe</a>
 	
 </nav>
-	<div class="profile">
-    <section id="wrapper">
-        <header id="header">
-            <a href="https://ssh-vault.com/about"><img id="avatar" class="2x" src="https://ssh-vault.com/img/ssh-vault.png"></a>
-            <h1>ssh-vault</h1>
-            <h2>encrypt/decrypt using ssh keys</h2>
-        </header>
-        <a href='https://bintray.com/nbari/ssh-vault/ssh-vault/_latestVersion'><img src='https://api.bintray.com/packages/nbari/ssh-vault/ssh-vault/images/download.svg' class="badge" alt="download ssh-vault" /></a>
-        <a href="https://travis-ci.org/ssh-vault/ssh-vault"><img src="https://travis-ci.org/ssh-vault/ssh-vault.svg?branch=develop" alt="travis ssh-vault" class="badge"></a>
-        <a href="https://coveralls.io/github/ssh-vault/ssh-vault?branch=develop"><img src="https://coveralls.io/repos/github/ssh-vault/ssh-vault/badge.svg?branch=develop" alt="Coverage Status" class="badge" /></a>
-        <a href="https://goreportcard.com/report/github.com/ssh-vault/ssh-vault"><img src="https://goreportcard.com/badge/github.com/ssh-vault/ssh-vault" alt="Go Report Card" class="badge"></a>
-    </section>
-</div>
 
-	<section id="wrapper" class="home">
-		<ul id="post-list">
-    
-    
-        
-            <li>
-                <a href='https://ssh-vault.com/post/how-it-works/'>How it works <h2></h2></a>
-            </li>
-        
-    
-    
-        
-            <li>
-                <a href='https://ssh-vault.com/post/fingerprint/'>Fingerprint <h2></h2></a>
-            </li>
-        
-    
-    
-        
-            <li>
-                <a href='https://ssh-vault.com/post/create-vault-from-stdin/'>Create vault from stdin <h2></h2></a>
-            </li>
-        
-    
-    
-        
-            <li>
-                <a href='https://ssh-vault.com/post/group-encryption/'>Group encryption <h2></h2></a>
-            </li>
-        
-    
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1>Group encryption</h1>
+                    <h2 class="headline">
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>An approach for sharing a vault across a team would be:</p>
+
+<ul>
+<li><p>Have each group member own a public/private key pair.</p></li>
+
+<li><p>Make a new group key pair and send it to each member within a vault.</p></li>
 </ul>
-        <nav id="post-nav">
+
+<pre><code>    ssh-keygen -t rsa -b 4096 -C &quot;group@acme.tld&quot;
+</code></pre>
+
+<p>Send the key pair to each member in a secure way:</p>
+
+<pre><code>    cat group_keys | ssh-vault -u alice create vault
+    cat group_keys | ssh-vault -u bob create vault
+    ...
+</code></pre>
+
+<ul>
+<li>To add a group member, send the key pair in a vault to it:</li>
+</ul>
+
+<pre><code>    cat /group/keys | ssh-vault -u newb create vault
+</code></pre>
+
+<ul>
+<li>To remove a group member, a new group key pair K need to be created and resend
+to the remaining group members.</li>
+</ul>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                
+                    
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fssh-vault.com%2fpost%2fgroup-encryption%2f - Group%20encryption "><span class="icon-twitter"> Tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+                </section>
+            </footer>
+
+            
+
+            <ul id="post-list" class="archive readmore">
+    <h3>Read more</h3>
     
-</nav>
-		<footer id="footer">
+    
+        
+   
+    
+        
+        <li>
+            <a href="https://ssh-vault.com/post/how-it-works/">How it works</a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://ssh-vault.com/post/fingerprint/">Fingerprint</a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://ssh-vault.com/post/create-vault-from-stdin/">Create vault from stdin</a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://ssh-vault.com/post/group-encryption/">Group encryption</a>
+        </li>
+        
+   
+</ul>
+            <footer id="footer">
     
         <div id="social">
 
@@ -125,9 +173,9 @@
     </p>
 </footer>
 
-	</section>
+        </section>
 
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://ssh-vault.com/js/main.js"></script>
 <script src="https://ssh-vault.com/js/highlight.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
@@ -146,5 +194,5 @@ ga('send', 'pageview');
 </script>
 
 
-	</body>
+    </body>
 </html>

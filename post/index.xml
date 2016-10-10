@@ -96,7 +96,7 @@ of ssh keys (public/private) within the team members.&lt;/p&gt;
     </item>
     
     <item>
-      <title>fingerprint</title>
+      <title>Fingerprint</title>
       <link>https://ssh-vault.com/post/fingerprint/</link>
       <pubDate>Tue, 20 Sep 2016 03:59:00 +0000</pubDate>
       
@@ -130,9 +130,9 @@ a9:55:9b:e3:02:1e:21:a8:2c:f0:29:50:b3:5d:da:bc
     </item>
     
     <item>
-      <title>create vault from stdin</title>
+      <title>Create vault from stdin</title>
       <link>https://ssh-vault.com/post/create-vault-from-stdin/</link>
-      <pubDate>Tue, 20 Sep 2016 03:58:37 +0200</pubDate>
+      <pubDate>Tue, 20 Sep 2016 03:58:37 +0000</pubDate>
       
       <guid>https://ssh-vault.com/post/create-vault-from-stdin/</guid>
       <description>&lt;p&gt;&lt;strong&gt;ssh-vault&lt;/strong&gt; can read from standard input
@@ -149,6 +149,44 @@ something like:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;you can choose any name you want for the vault, in this example the vault contents will be written to file &lt;code&gt;bobs.vault&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Group encryption</title>
+      <link>https://ssh-vault.com/post/group-encryption/</link>
+      <pubDate>Tue, 20 Sep 2016 03:56:00 +0000</pubDate>
+      
+      <guid>https://ssh-vault.com/post/group-encryption/</guid>
+      <description>&lt;p&gt;An approach for sharing a vault across a team would be:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Have each group member own a public/private key pair.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Make a new group key pair and send it to each member within a vault.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;    ssh-keygen -t rsa -b 4096 -C &amp;quot;group@acme.tld&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Send the key pair to each member in a secure way:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    cat group_keys | ssh-vault -u alice create vault
+    cat group_keys | ssh-vault -u bob create vault
+    ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;To add a group member, send the key pair in a vault to it:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;    cat /group/keys | ssh-vault -u newb create vault
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;To remove a group member, a new group key pair K need to be created and resend
+to the remaining group members.&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
