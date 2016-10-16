@@ -217,5 +217,23 @@ to the remaining group members.&lt;/li&gt;
 </description>
     </item>
     
+    <item>
+      <title>homebrew</title>
+      <link>https://ssh-vault.com/post/homebrew/</link>
+      <pubDate>Tue, 20 Sep 2016 03:55:00 +0000</pubDate>
+      
+      <guid>https://ssh-vault.com/post/homebrew/</guid>
+      <description>&lt;p&gt;To install &lt;strong&gt;ssh-vault&lt;/strong&gt; on Mac OS X:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ brew tap ssh-vault/tap
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ brew install ssh-vault
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>

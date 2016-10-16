@@ -8,7 +8,7 @@
 		<meta name="description" content="encrypt/decrypt using ssh keys">
 		<meta name="keywords" content="encrypt, decrypt, ssh, rsa, openssl">
 		<meta name="generator" content="Hugo 0.17" />
-		<title>Group encryption &middot; ssh-vault</title>
+		<title>homebrew &middot; ssh-vault</title>
         <link rel="apple-touch-icon" sizes="57x57" href="https://ssh-vault.com/images/apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="https://ssh-vault.com/images/apple-touch-icon-60x60.png">
         <link rel="apple-touch-icon" sizes="72x72" href="https://ssh-vault.com/images/apple-touch-icon-72x72.png">
@@ -57,42 +57,22 @@
         <section id="wrapper">
             <article class="post">
                 <header>
-                    <h1>Group encryption</h1>
+                    <h1>homebrew</h1>
                     <h2 class="headline">
                     <br>
                     
                     </h2>
                 </header>
                 <section id="post-body">
-                    <p>An approach for sharing a vault across a team would be:</p>
+                    <p>To install <strong>ssh-vault</strong> on Mac OS X:</p>
 
-<ul>
-<li><p>Have each group member own a public/private key pair.</p></li>
-
-<li><p>Make a new group key pair and send it to each member within a vault.</p></li>
-</ul>
-
-<pre><code>    ssh-keygen -t rsa -b 4096 -C &quot;group@acme.tld&quot;
+<pre><code>$ brew tap ssh-vault/tap
 </code></pre>
 
-<p>Send the key pair to each member in a secure way:</p>
+<p>Next:</p>
 
-<pre><code>    cat group_keys | ssh-vault -u alice create vault
-    cat group_keys | ssh-vault -u bob create vault
-    ...
+<pre><code>$ brew install ssh-vault
 </code></pre>
-
-<ul>
-<li>To add a group member, send the key pair in a vault to it:</li>
-</ul>
-
-<pre><code>    cat /group/keys | ssh-vault -u newb create vault
-</code></pre>
-
-<ul>
-<li>To remove a group member, a new group key pair K need to be created and resend
-to the remaining group members.</li>
-</ul>
 
                 </section>
             </article>
@@ -100,7 +80,7 @@ to the remaining group members.</li>
                 
                     
                 <section id="sharing">
-                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fssh-vault.com%2fpost%2fgroup-encryption%2f - Group%20encryption "><span class="icon-twitter"> Tweet</span></a>
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fssh-vault.com%2fpost%2fhomebrew%2f - homebrew "><span class="icon-twitter"> Tweet</span></a>
 
 <a class="facebook" href="#" onclick="
     window.open(
