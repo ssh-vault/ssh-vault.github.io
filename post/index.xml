@@ -51,6 +51,11 @@ the best way to undestand how ssh-vault works.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ ssh-vault -u bob create vault
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;blockquote&gt;
+&lt;p&gt;vault is the name of the file that will be created with the encrypted content,
+instead of vault you could use something like vault.txt, bob.txt, etc.&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;p&gt;Alice know that Bob has an account in github.com therefore by using the option
 &lt;code&gt;-u bob&lt;/code&gt;, Alice gets Bob&amp;rsquo;s ssh-rsa public key&lt;/p&gt;
 
