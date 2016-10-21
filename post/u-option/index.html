@@ -8,7 +8,7 @@
 		<meta name="description" content="encrypt/decrypt using ssh keys">
 		<meta name="keywords" content="encrypt, decrypt, ssh, rsa, openssl">
 		<meta name="generator" content="Hugo 0.17" />
-		<title>homebrew &middot; ssh-vault</title>
+		<title>-u &lt;username&gt; or -u URL &middot; ssh-vault</title>
         <link rel="apple-touch-icon" sizes="57x57" href="https://ssh-vault.com/images/apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="https://ssh-vault.com/images/apple-touch-icon-60x60.png">
         <link rel="apple-touch-icon" sizes="72x72" href="https://ssh-vault.com/images/apple-touch-icon-72x72.png">
@@ -57,21 +57,44 @@
         <section id="wrapper">
             <article class="post">
                 <header>
-                    <h1>homebrew</h1>
+                    <h1>-u &lt;username&gt; or -u URL</h1>
                     <h2 class="headline">
                     <br>
                     
                     </h2>
                 </header>
                 <section id="post-body">
-                    <p>To install <strong>ssh-vault</strong> on Mac OS X:</p>
+                    
 
-<pre><code>$ brew tap ssh-vault/tap
+<h1 id="u-username">-u <username></h1>
+
+<p>The option <code>-u</code> is used for fetching the ssh-rsa public keys, when passing a
+username for example:</p>
+
+<pre><code>$ ssh-vault -u alice
 </code></pre>
 
-<p>Next:</p>
+<p>It will try to fetch the keys from github.com.</p>
 
-<pre><code>$ brew install ssh-vault
+<h1 id="u-https">-u https://&hellip;</h1>
+
+<p>In case the keys are not in github, and url can be passed, for example:</p>
+
+<pre><code>$ ssh-vault -u https://launchpad.net/~user/+sshkeys
+</code></pre>
+
+<h1 id="k-n">-k N</h1>
+
+<p>There may be cases where the user has more than one key in this keys the
+option <code>-k</code> helps to specify what key to use, for example if we want to send
+something to user bob using his second key, this would be used:</p>
+
+<pre><code>$ ssh-vault -u bob -k 2 create file
+</code></pre>
+
+<p>or</p>
+
+<pre><code>$ ssh-vault -u https://launchpad.net/~bob/+sshkeys -k 2 create file
 </code></pre>
 
                 </section>
@@ -80,7 +103,7 @@
                 
                     
                 <section id="sharing">
-                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fssh-vault.com%2fpost%2fhomebrew%2f - homebrew "><span class="icon-twitter"> Tweet</span></a>
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fssh-vault.com%2fpost%2fu-option%2f - -u%20%3cusername%3e%20or%20-u%20URL "><span class="icon-twitter"> Tweet</span></a>
 
 <a class="facebook" href="#" onclick="
     window.open(

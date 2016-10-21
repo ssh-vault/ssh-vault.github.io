@@ -128,6 +128,47 @@ of ssh keys (public/private) within the team members.&lt;/p&gt;
     </item>
     
     <item>
+      <title>-u &lt;username&gt; or -u URL</title>
+      <link>https://ssh-vault.com/post/u-option/</link>
+      <pubDate>Tue, 20 Sep 2016 03:59:30 +0000</pubDate>
+      
+      <guid>https://ssh-vault.com/post/u-option/</guid>
+      <description>
+
+&lt;h1 id=&#34;u-username&#34;&gt;-u &lt;username&gt;&lt;/h1&gt;
+
+&lt;p&gt;The option &lt;code&gt;-u&lt;/code&gt; is used for fetching the ssh-rsa public keys, when passing a
+username for example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ssh-vault -u alice
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It will try to fetch the keys from github.com.&lt;/p&gt;
+
+&lt;h1 id=&#34;u-https&#34;&gt;-u https://&amp;hellip;&lt;/h1&gt;
+
+&lt;p&gt;In case the keys are not in github, and url can be passed, for example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ssh-vault -u https://launchpad.net/~user/+sshkeys
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;k-n&#34;&gt;-k N&lt;/h1&gt;
+
+&lt;p&gt;There may be cases where the user has more than one key in this keys the
+option &lt;code&gt;-k&lt;/code&gt; helps to specify what key to use, for example if we want to send
+something to user bob using his second key, this would be used:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ssh-vault -u bob -k 2 create file
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;or&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ssh-vault -u https://launchpad.net/~bob/+sshkeys -k 2 create file
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Fingerprint</title>
       <link>https://ssh-vault.com/post/fingerprint/</link>
       <pubDate>Tue, 20 Sep 2016 03:59:00 +0000</pubDate>
