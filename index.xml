@@ -55,7 +55,8 @@ receiver.&lt;/p&gt;
 &lt;p&gt;This simplify the share of sensitive data across developers, teams, or either to
 store things on a public repository by just using ssh keys.&lt;/p&gt;
 
-&lt;p&gt;The option &lt;code&gt;-u &amp;lt;username&amp;gt;&lt;/code&gt; will fetch the receiver ssh-rsa public from github:&lt;/p&gt;
+&lt;p&gt;The option &lt;a href=&#34;https://ssh-vault.com/post/u-option/&#34;&gt;-u username&lt;/a&gt; will fetch the receiver ssh-rsa
+public from github:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt; https://github.com/&amp;lt;username&amp;gt;.keys
 &lt;/code&gt;&lt;/pre&gt;
