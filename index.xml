@@ -25,10 +25,10 @@
 
 &lt;p&gt;A vault password is encrypted using the public ssh key of the receiver and
 the main data of the vault using AES256, in order to see/decrypt the vault
-contentes, the receiver will need to use his private key &amp;amp; password in case of
+contents, the receiver will need to use his private key &amp;amp; password in case of
 needed to be available to edit/view the contents.&lt;/p&gt;
 
-&lt;p&gt;You can learn more about generaring an SSH key here:
+&lt;p&gt;You can learn more about generating an SSH key here:
 &lt;a href=&#34;https://help.github.com/articles/generating-an-ssh-key/&#34;&gt;https://help.github.com/articles/generating-an-ssh-key/&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;why&#34;&gt;Why ?&lt;/h2&gt;
