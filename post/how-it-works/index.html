@@ -82,6 +82,11 @@ public from github:</p>
 <pre><code> https://github.com/&lt;username&gt;.keys
 </code></pre>
 
+<p>Using -u:</p>
+
+<pre><code>$ ssh-vault -u https://gitlab.com/&lt;user&gt;.keys
+</code></pre>
+
 <p>This helps to create a vault very straight forward, since both the sender and
 receiver don&rsquo;t need to exchange their keys before in order to share sensitive
 data, therefore this helps to work asynchronously</p>
@@ -97,12 +102,13 @@ the best way to undestand how ssh-vault works.</p>
 
 <p>If Alice wants to send something to Bob, Alice will type in a terminal:</p>
 
-<pre><code>$ ssh-vault -u bob create vault
+<pre><code>$ ssh-vault -u bob create vault.ssh
 </code></pre>
 
 <blockquote>
-<p>vault is the name of the file that will be created with the encrypted content,
-instead of vault you could use something like vault.txt, bob.txt, etc.</p>
+<p>vault.ssh is the name of the file that will be created with the encrypted
+content, instead of vault you could use something like vault.txt, bob.txt,
+etc.</p>
 </blockquote>
 
 <p>Alice know that Bob has an account in github.com therefore by using the option
@@ -110,31 +116,31 @@ instead of vault you could use something like vault.txt, bob.txt, etc.</p>
 
 <p>In case Alice want&rsquo;s to use a different key, could do:</p>
 
-<pre><code>$ ssh-vault -k /path/to/bob/id_rsa.pub create vault
+<pre><code>$ ssh-vault -k /path/to/bob/id_rsa.pub create vault.ssh
 </code></pre>
 
 <h1 id="edit-view-a-vault-decryption">Edit/View a vault (decryption)</h1>
 
 <p>Bob can use his sha-rsa private key to decrypt the vault by doing:</p>
 
-<pre><code>$ ssh-vault view vault
+<pre><code>$ ssh-vault view vault.ssh
 </code></pre>
 
 <p>He will be prompted for his ssh-key private password if required or if he wants to use
 another private key, he do something like:</p>
 
-<pre><code>$ ssh-vault -k ~/.ssh/id_rsa_other view vault
+<pre><code>$ ssh-vault -k ~/.ssh/id_rsa_other view vault.ssh
 </code></pre>
 
 <p>If Bob would like to send something back to Alice, he would do:</p>
 
-<pre><code>$ ssh-vault -u alice create vault
+<pre><code>$ ssh-vault -u alice create vault.ssh
 </code></pre>
 
 <p>But if Alice has more than 2 keys and Bob would like to create a vault using the
 second key, this could be done:</p>
 
-<pre><code>$ ssh-vault -u alice -k 2 create vault
+<pre><code>$ ssh-vault -u alice -k 2 create vault.ssh
 </code></pre>
 
 <blockquote>

@@ -77,8 +77,8 @@
 
 <p>Send the key pair to each member in a secure way:</p>
 
-<pre><code>    cat group_keys | ssh-vault -u alice create vault
-    cat group_keys | ssh-vault -u bob create vault
+<pre><code>    cat group_keys | ssh-vault -u alice create vault.ssh
+    cat group_keys | ssh-vault -u bob create vault.ssh
     ...
 </code></pre>
 
@@ -86,7 +86,7 @@
 <li>To add a group member, send the key pair in a vault to it:</li>
 </ul>
 
-<pre><code>    cat /group/keys | ssh-vault -u newb create vault
+<pre><code>    cat /group/keys | ssh-vault -u newb create vault.ssh
 </code></pre>
 
 <ul>

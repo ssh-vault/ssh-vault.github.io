@@ -34,6 +34,11 @@ public from github:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt; https://github.com/&amp;lt;username&amp;gt;.keys
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;Using -u:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ssh-vault -u https://gitlab.com/&amp;lt;user&amp;gt;.keys
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;This helps to create a vault very straight forward, since both the sender and
 receiver don&amp;rsquo;t need to exchange their keys before in order to share sensitive
 data, therefore this helps to work asynchronously&lt;/p&gt;
@@ -49,12 +54,13 @@ the best way to undestand how ssh-vault works.&lt;/p&gt;
 
 &lt;p&gt;If Alice wants to send something to Bob, Alice will type in a terminal:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ ssh-vault -u bob create vault
+&lt;pre&gt;&lt;code&gt;$ ssh-vault -u bob create vault.ssh
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;vault is the name of the file that will be created with the encrypted content,
-instead of vault you could use something like vault.txt, bob.txt, etc.&lt;/p&gt;
+&lt;p&gt;vault.ssh is the name of the file that will be created with the encrypted
+content, instead of vault you could use something like vault.txt, bob.txt,
+etc.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Alice know that Bob has an account in github.com therefore by using the option
@@ -62,31 +68,31 @@ instead of vault you could use something like vault.txt, bob.txt, etc.&lt;/p&gt;
 
 &lt;p&gt;In case Alice want&amp;rsquo;s to use a different key, could do:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ ssh-vault -k /path/to/bob/id_rsa.pub create vault
+&lt;pre&gt;&lt;code&gt;$ ssh-vault -k /path/to/bob/id_rsa.pub create vault.ssh
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h1 id=&#34;edit-view-a-vault-decryption&#34;&gt;Edit/View a vault (decryption)&lt;/h1&gt;
 
 &lt;p&gt;Bob can use his sha-rsa private key to decrypt the vault by doing:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ ssh-vault view vault
+&lt;pre&gt;&lt;code&gt;$ ssh-vault view vault.ssh
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;He will be prompted for his ssh-key private password if required or if he wants to use
 another private key, he do something like:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ ssh-vault -k ~/.ssh/id_rsa_other view vault
+&lt;pre&gt;&lt;code&gt;$ ssh-vault -k ~/.ssh/id_rsa_other view vault.ssh
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;If Bob would like to send something back to Alice, he would do:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ ssh-vault -u alice create vault
+&lt;pre&gt;&lt;code&gt;$ ssh-vault -u alice create vault.ssh
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;But if Alice has more than 2 keys and Bob would like to create a vault using the
 second key, this could be done:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ ssh-vault -u alice -k 2 create vault
+&lt;pre&gt;&lt;code&gt;$ ssh-vault -u alice -k 2 create vault.ssh
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;blockquote&gt;
@@ -167,6 +173,12 @@ compatible with the format that &lt;a href=&#34;https://aws.amazon.com/&#34;&gt;
 24:c6:6f:33:49:de:d7:bb:77:cf:e9:78:4c:e9:25:5f
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;Using -u for remote server:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ssh-vault -u https://gitlab.com/bob.keys -f
+f8:33:95:0e:6e:35:93:39:18:cf:af:0d:34:5a:34:df
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;Or for a key that locally stored:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ ssh-vault -k /path/to/key -f
@@ -177,6 +189,12 @@ fingerprint for key 2 is required, this can be used:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;$ ssh-vault -u bob -k 2 -f
 a9:55:9b:e3:02:1e:21:a8:2c:f0:29:50:b3:5d:da:bc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Using a remote server:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ssh-vault -u https://gitlab.com/bob.keys -k 2 -f
+2a:a9:bf:d2:8b:41:6e:bf:f8:b3:56:d5:90:28:33:44
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
@@ -223,8 +241,8 @@ something like:&lt;/p&gt;
 
 &lt;p&gt;Send the key pair to each member in a secure way:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;    cat group_keys | ssh-vault -u alice create vault
-    cat group_keys | ssh-vault -u bob create vault
+&lt;pre&gt;&lt;code&gt;    cat group_keys | ssh-vault -u alice create vault.ssh
+    cat group_keys | ssh-vault -u bob create vault.ssh
     ...
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -232,7 +250,7 @@ something like:&lt;/p&gt;
 &lt;li&gt;To add a group member, send the key pair in a vault to it:&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;pre&gt;&lt;code&gt;    cat /group/keys | ssh-vault -u newb create vault
+&lt;pre&gt;&lt;code&gt;    cat /group/keys | ssh-vault -u newb create vault.ssh
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;ul&gt;
