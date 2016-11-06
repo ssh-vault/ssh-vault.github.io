@@ -126,6 +126,11 @@ username for example:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ ssh-vault -u https://launchpad.net/~user/+sshkeys
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;Using gitlab:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ssh-vault -u https://gitlab.com/&amp;lt;user&amp;gt;.keys
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h1 id=&#34;k-n&#34;&gt;-k N&lt;/h1&gt;
 
 &lt;p&gt;There may be cases where the user has more than one key in this keys the
