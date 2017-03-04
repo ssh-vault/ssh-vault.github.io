@@ -52,6 +52,12 @@ AES256, the password later will be encrypted using the
 &lt;a href=&#34;https://en.wikipedia.org/wiki/RSA_(cryptosystem)&#34;&gt;ssh-rsa&lt;/a&gt; public key of the
 receiver.&lt;/p&gt;
 
+&lt;p&gt;&lt;img src=&#34;https://ssh-vault.com/img/PGP_diagram.svg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Pretty_Good_Privacy&#34;&gt;https://en.wikipedia.org/wiki/Pretty_Good_Privacy&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;p&gt;This simplify the share of sensitive data across developers, teams, or either to
 store things on a public repository by just using ssh keys.&lt;/p&gt;
 
