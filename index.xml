@@ -34,6 +34,32 @@ needed to be available to edit/view the contents.&lt;/p&gt;
 &lt;h2 id=&#34;why&#34;&gt;Why ?&lt;/h2&gt;
 
 &lt;p&gt;Because of the need to share sensitive data without the need to share a password.&lt;/p&gt;
+
+&lt;p&gt;When working with multiple teams either for testing or for deploying something
+at one point there is always the need to share a database password, HTTP auth
+credentials, tokens etc; the most common way of doing this is by just sending
+the “secret” plan within any chat.&lt;/p&gt;
+
+&lt;p&gt;In many cases the use &lt;a href=&#34;https://en.wikipedia.org/wiki/Pretty_Good_Privacy&#34;&gt;PGP&lt;/a&gt;
+is required but this take a time to exchange public keys, besides certain
+knowledge and understanding is required in order to properly exchange the
+“secret”.&lt;/p&gt;
+
+&lt;p&gt;Here is when ssh-vault comes into action, follow the same principle of PGP but
+simplifies the exchange process, therefore, helps to exchange “secrets” fast and
+in a secure way.&lt;/p&gt;
+
+&lt;p&gt;The exchange off the public keys is done or taken granted from the existing
+&lt;a href=&#34;https://en.wikipedia.org/wiki/Version_control&#34;&gt;version control system&lt;/a&gt; used in the team,
+by default ssh-vault defaults to &lt;a href=&#34;https://github.com&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Basically &lt;strong&gt;ssh-vault&lt;/strong&gt; delegates the pre-sharing phase of the keys to the
+version control system, at the end if &lt;code&gt;user A&lt;/code&gt; wants so send something to
+&lt;code&gt;user B&lt;/code&gt; and both use the Github for example, it is straight forward to just
+send a secure &amp;ldquo;secret&amp;rdquo; without need to pre-handshake:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;echo &amp;quot;secret&amp;quot; | ssh-vault -u alice create
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

@@ -79,6 +79,32 @@ needed to be available to edit/view the contents.</p>
 
 <p>Because of the need to share sensitive data without the need to share a password.</p>
 
+<p>When working with multiple teams either for testing or for deploying something
+at one point there is always the need to share a database password, HTTP auth
+credentials, tokens etc; the most common way of doing this is by just sending
+the “secret” plan within any chat.</p>
+
+<p>In many cases the use <a href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy">PGP</a>
+is required but this take a time to exchange public keys, besides certain
+knowledge and understanding is required in order to properly exchange the
+“secret”.</p>
+
+<p>Here is when ssh-vault comes into action, follow the same principle of PGP but
+simplifies the exchange process, therefore, helps to exchange “secrets” fast and
+in a secure way.</p>
+
+<p>The exchange off the public keys is done or taken granted from the existing
+<a href="https://en.wikipedia.org/wiki/Version_control">version control system</a> used in the team,
+by default ssh-vault defaults to <a href="https://github.com">Github</a>.</p>
+
+<p>Basically <strong>ssh-vault</strong> delegates the pre-sharing phase of the keys to the
+version control system, at the end if <code>user A</code> wants so send something to
+<code>user B</code> and both use the Github for example, it is straight forward to just
+send a secure &ldquo;secret&rdquo; without need to pre-handshake:</p>
+
+<pre><code>echo &quot;secret&quot; | ssh-vault -u alice create
+</code></pre>
+
                 </section>
             </article>
             <footer id="post-meta" class="clearfix">
