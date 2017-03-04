@@ -270,7 +270,7 @@ something like:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;echo &amp;quot;secret&amp;quot; | ssh-vault -u bob create | pbcopy
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;view-stdin&#34;&gt;view stdin&lt;/h2&gt;
+&lt;h1 id=&#34;view-stdin&#34;&gt;view stdin&lt;/h1&gt;
 
 &lt;p&gt;If some one send you a vault you can pass directly to ssh-vault and view it:&lt;/p&gt;
 
