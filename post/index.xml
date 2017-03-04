@@ -267,6 +267,8 @@ o&amp;quot; | ssh-vault view
 
 &lt;pre&gt;&lt;code&gt;echo &amp;quot;secret&amp;quot; | ssh-vault -u bob create | ssh-vault view
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://asciinema.org/a/105690&#34;&gt;&lt;img src=&#34;https://asciinema.org/a/105690.png&#34; alt=&#34;asciicast&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
