@@ -60,6 +60,8 @@ send a secure &amp;ldquo;secret&amp;rdquo; without need to pre-handshake:&lt;/p&
 
 &lt;pre&gt;&lt;code&gt;echo &amp;quot;secret&amp;quot; | ssh-vault -u alice create
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://asciinema.org/a/105690&#34;&gt;&lt;img src=&#34;https://asciinema.org/a/105690.png&#34; alt=&#34;asciicast&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
