@@ -335,11 +335,14 @@ o&amp;quot; | ssh-vault view
       <guid>https://ssh-vault.com/post/group-encryption/</guid>
       <description>&lt;p&gt;An approach for sharing a vault across a team would be:&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Have each group member own a public/private key pair.&lt;/p&gt;&lt;/li&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ssh-vault is not properly designed for group/broadcast encryption, therefore,
+this approach may not be the best depending on your security requirements.&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;li&gt;&lt;p&gt;Make a new group key pair and send it to each member within a vault.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Have each group member own a public/private key pair.&lt;/p&gt;
+
+&lt;p&gt;Make a new group key pair and send it to each member within a vault.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;    ssh-keygen -t rsa -b 4096 -C &amp;quot;group@acme.tld&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
@@ -351,17 +354,13 @@ o&amp;quot; | ssh-vault view
     ...
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;ul&gt;
-&lt;li&gt;To add a group member, send the key pair in a vault to it:&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;To add a group member, send the key pair in a vault to it:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;    cat /group/keys | ssh-vault -u newb create vault.ssh
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;ul&gt;
-&lt;li&gt;To remove a group member, a new group key pair K need to be created and resend
-to the remaining group members.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;To remove a group member, a new group key pair K need to be created and resend
+to the remaining group members.&lt;/p&gt;
 </description>
     </item>
     

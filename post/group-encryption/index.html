@@ -66,11 +66,14 @@
                 <section id="post-body">
                     <p>An approach for sharing a vault across a team would be:</p>
 
-<ul>
-<li><p>Have each group member own a public/private key pair.</p></li>
+<blockquote>
+<p>ssh-vault is not properly designed for group/broadcast encryption, therefore,
+this approach may not be the best depending on your security requirements.</p>
+</blockquote>
 
-<li><p>Make a new group key pair and send it to each member within a vault.</p></li>
-</ul>
+<p>Have each group member own a public/private key pair.</p>
+
+<p>Make a new group key pair and send it to each member within a vault.</p>
 
 <pre><code>    ssh-keygen -t rsa -b 4096 -C &quot;group@acme.tld&quot;
 </code></pre>
@@ -82,17 +85,13 @@
     ...
 </code></pre>
 
-<ul>
-<li>To add a group member, send the key pair in a vault to it:</li>
-</ul>
+<p>To add a group member, send the key pair in a vault to it:</p>
 
 <pre><code>    cat /group/keys | ssh-vault -u newb create vault.ssh
 </code></pre>
 
-<ul>
-<li>To remove a group member, a new group key pair K need to be created and resend
-to the remaining group members.</li>
-</ul>
+<p>To remove a group member, a new group key pair K need to be created and resend
+to the remaining group members.</p>
 
                 </section>
             </article>
