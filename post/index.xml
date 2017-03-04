@@ -218,6 +218,8 @@ a9:55:9b:e3:02:1e:21:a8:2c:f0:29:50:b3:5d:da:bc
       <guid>https://ssh-vault.com/post/create-vault-from-stdin/</guid>
       <description>
 
+&lt;p&gt;&lt;a href=&#34;https://asciinema.org/a/105690&#34;&gt;&lt;img src=&#34;https://asciinema.org/a/105690.png&#34; alt=&#34;asciicast&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
 &lt;p&gt;&lt;strong&gt;ssh-vault&lt;/strong&gt; can read from standard input
 &lt;a href=&#34;https://en.wikipedia.org/wiki/Standard_streams#Standard_input_.28stdin.29&#34;&gt;(stdin)&lt;/a&gt;
 when creating a vault.&lt;/p&gt;
@@ -267,8 +269,6 @@ o&amp;quot; | ssh-vault view
 
 &lt;pre&gt;&lt;code&gt;echo &amp;quot;secret&amp;quot; | ssh-vault -u bob create | ssh-vault view
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://asciinema.org/a/105690&#34;&gt;&lt;img src=&#34;https://asciinema.org/a/105690.png&#34; alt=&#34;asciicast&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
