@@ -7,8 +7,41 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright> </copyright>
-    <lastBuildDate>Fri, 07 Oct 2016 21:26:25 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 06 Mar 2017 21:24:00 +0000</lastBuildDate>
     <atom:link href="https://ssh-vault.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>homebrew</title>
+      <link>https://ssh-vault.com/mac/</link>
+      <pubDate>Mon, 06 Mar 2017 21:24:00 +0000</pubDate>
+      
+      <guid>https://ssh-vault.com/mac/</guid>
+      <description>&lt;p&gt;To install &lt;strong&gt;ssh-vault&lt;/strong&gt; on Mac OS X:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ brew tap ssh-vault/tap
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ brew install ssh-vault
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>pkg install ssh-vault</title>
+      <link>https://ssh-vault.com/freebsd/</link>
+      <pubDate>Mon, 06 Mar 2017 21:24:00 +0000</pubDate>
+      
+      <guid>https://ssh-vault.com/freebsd/</guid>
+      <description>&lt;p&gt;To install &lt;strong&gt;ssh-vault&lt;/strong&gt; on  FreeBSD:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ pkg install ssh-vault
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.freshports.org/security/ssh-vault/&#34;&gt;https://www.freshports.org/security/ssh-vault/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>🌰  ssh-vault</title>

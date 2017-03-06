@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ssh-vault.com/mac/</loc>
+    <lastmod>2017-03-06T21:24:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ssh-vault.com/freebsd/</loc>
+    <lastmod>2017-03-06T21:24:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ssh-vault.com/about/</loc>
     <lastmod>2016-10-07T21:26:25+02:00</lastmod>
   </url>
@@ -44,7 +54,7 @@
   
   <url>
     <loc>https://ssh-vault.com/</loc>
-    <lastmod>2016-10-07T21:26:25+02:00</lastmod>
+    <lastmod>2017-03-06T21:24:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
