@@ -198,6 +198,8 @@ use, in where N is the index of the list of available keys&lt;/p&gt;
 
 &lt;p&gt;In case a team needs to share a vault, the best way could be to share the pair
 of ssh keys (public/private) within the team members.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://asciinema.org/a/105473&#34;&gt;&lt;img src=&#34;https://asciinema.org/a/105473.png&#34; alt=&#34;asciicast&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
