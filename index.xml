@@ -2,13 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ssh-vault</title>
-    <link>https://ssh-vault.com/index.xml</link>
+    <link>https://ssh-vault.com/</link>
     <description>Recent content on ssh-vault</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright> </copyright>
     <lastBuildDate>Mon, 06 Mar 2017 21:24:00 +0000</lastBuildDate>
-    <atom:link href="https://ssh-vault.com/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="https://ssh-vault.com/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>homebrew</title>
@@ -16,16 +18,9 @@
       <pubDate>Mon, 06 Mar 2017 21:24:00 +0000</pubDate>
       
       <guid>https://ssh-vault.com/mac/</guid>
-      <description>&lt;p&gt;To install &lt;strong&gt;ssh-vault&lt;/strong&gt; on Mac OS X:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ brew tap ssh-vault/tap
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Next:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ brew install ssh-vault
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>To install ssh-vault on Mac OS X:
+$ brew tap ssh-vault/tap  Next:
+$ brew install ssh-vault  </description>
     </item>
     
     <item>
@@ -34,13 +29,8 @@
       <pubDate>Mon, 06 Mar 2017 21:24:00 +0000</pubDate>
       
       <guid>https://ssh-vault.com/freebsd/</guid>
-      <description>&lt;p&gt;To install &lt;strong&gt;ssh-vault&lt;/strong&gt; on  FreeBSD:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ pkg install ssh-vault
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.freshports.org/security/ssh-vault/&#34;&gt;https://www.freshports.org/security/ssh-vault/&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>To install ssh-vault on FreeBSD:
+$ pkg install ssh-vault  https://www.freshports.org/security/ssh-vault/</description>
     </item>
     
     <item>
@@ -49,53 +39,8 @@
       <pubDate>Fri, 07 Oct 2016 21:26:25 +0200</pubDate>
       
       <guid>https://ssh-vault.com/about/</guid>
-      <description>
-
-&lt;h1 id=&#34;what-is-ssh-vault&#34;&gt;What is ssh-vault?&lt;/h1&gt;
-
-&lt;p&gt;A command line tool (cli) for creating encrypted files &amp;ldquo;vaults&amp;rdquo; using ssh
-&lt;a href=&#34;https://en.wikipedia.org/wiki/RSA_(cryptosystem)&#34;&gt;rsa&lt;/a&gt; keys for encrypt/decrypt.&lt;/p&gt;
-
-&lt;p&gt;A vault password is encrypted using the public ssh key of the receiver and
-the main data of the vault using AES256, in order to see/decrypt the vault
-contents, the receiver will need to use his private key &amp;amp; password in case of
-needed to be available to edit/view the contents.&lt;/p&gt;
-
-&lt;p&gt;You can learn more about generating an SSH key here:
-&lt;a href=&#34;https://help.github.com/articles/generating-an-ssh-key/&#34;&gt;https://help.github.com/articles/generating-an-ssh-key/&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;why&#34;&gt;Why ?&lt;/h2&gt;
-
-&lt;p&gt;Because of the need to share sensitive data without the need to share a password.&lt;/p&gt;
-
-&lt;p&gt;When working with multiple teams either for testing or for deploying something
-at one point there is always the need to share a database password, HTTP auth
-credentials, tokens etc; the most common way of doing this is by just sending
-the “secret” plan within any chat.&lt;/p&gt;
-
-&lt;p&gt;In many cases the use &lt;a href=&#34;https://en.wikipedia.org/wiki/Pretty_Good_Privacy&#34;&gt;PGP&lt;/a&gt;
-is required but this take a time to exchange public keys, besides certain
-knowledge and understanding is required in order to properly exchange the
-“secret”.&lt;/p&gt;
-
-&lt;p&gt;Here is when ssh-vault comes into action, follow the same principle of PGP but
-simplifies the exchange process, therefore, helps to exchange “secrets” fast and
-in a secure way.&lt;/p&gt;
-
-&lt;p&gt;The exchange off the public keys is done or taken granted from the existing
-&lt;a href=&#34;https://en.wikipedia.org/wiki/Version_control&#34;&gt;version control system&lt;/a&gt; used in the team,
-by default ssh-vault defaults to &lt;a href=&#34;https://github.com&#34;&gt;Github&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Basically &lt;strong&gt;ssh-vault&lt;/strong&gt; delegates the pre-sharing phase of the keys to the
-version control system, at the end if &lt;code&gt;user A&lt;/code&gt; wants so send something to
-&lt;code&gt;user B&lt;/code&gt; and both use the Github for example, it is straight forward to just
-send a secure &amp;ldquo;secret&amp;rdquo; without need to pre-handshake:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;echo &amp;quot;secret&amp;quot; | ssh-vault -u alice create
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://asciinema.org/a/105690&#34;&gt;&lt;img src=&#34;https://asciinema.org/a/105690.png&#34; alt=&#34;asciicast&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-</description>
+      <description>What is ssh-vault? A command line tool (cli) for creating encrypted files &amp;ldquo;vaults&amp;rdquo; using ssh rsa keys for encrypt/decrypt.
+A vault password is encrypted using the public ssh key of the receiver and the main data of the vault using AES256, in order to see/decrypt the vault contents, the receiver will need to use his private key &amp;amp; password in case of needed to be available to edit/view the contents.</description>
     </item>
     
     <item>
@@ -104,103 +49,10 @@ send a secure &amp;ldquo;secret&amp;rdquo; without need to pre-handshake:&lt;/p&
       <pubDate>Tue, 20 Sep 2016 04:00:00 +0000</pubDate>
       
       <guid>https://ssh-vault.com/post/how-it-works/</guid>
-      <description>
-
-&lt;p&gt;&lt;strong&gt;ssh-vault&lt;/strong&gt; will randomly create a password and use it
-for encrypting the contents of the vault using a
-&lt;a href=&#34;https://en.wikipedia.org/wiki/Symmetric-key_algorithm&#34;&gt;symmetric cipher&lt;/a&gt;
-AES256, the password later will be encrypted using the
-&lt;a href=&#34;https://en.wikipedia.org/wiki/RSA_(cryptosystem)&#34;&gt;ssh-rsa&lt;/a&gt; public key of the
-receiver.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://ssh-vault.com/img/PGP_diagram.svg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Pretty_Good_Privacy&#34;&gt;https://en.wikipedia.org/wiki/Pretty_Good_Privacy&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;This simplify the share of sensitive data across developers, teams, or either to
-store things on a public repository by just using ssh keys.&lt;/p&gt;
-
-&lt;p&gt;The option &lt;a href=&#34;https://ssh-vault.com/post/u-option/&#34;&gt;-u username&lt;/a&gt; will fetch the receiver ssh-rsa
-public from github:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt; https://github.com/&amp;lt;username&amp;gt;.keys
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Using -u:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ssh-vault -u https://gitlab.com/&amp;lt;user&amp;gt;.keys
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This helps to create a vault very straight forward, since both the sender and
-receiver don&amp;rsquo;t need to exchange their keys before in order to share sensitive
-data, therefore this helps to work asynchronously&lt;/p&gt;
-
-&lt;p&gt;The current requirement for using the option &lt;code&gt;-u &amp;lt;username&amp;gt;&lt;/code&gt;
-is to have an github.com account with a SSH key, more info here:
-&lt;a href=&#34;https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/&#34;&gt;https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;An &lt;a href=&#34;https://en.wikipedia.org/wiki/Alice_and_Bob&#34;&gt;Alice and Bob&lt;/a&gt; example could be
-the best way to undestand how ssh-vault works.&lt;/p&gt;
-
-&lt;h1 id=&#34;creating-a-vault-encryption&#34;&gt;Creating a vault (encryption)&lt;/h1&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://asciinema.org/a/105473&#34;&gt;&lt;img src=&#34;https://asciinema.org/a/105473.png&#34; alt=&#34;asciicast&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;If Alice wants to send something to Bob, Alice will type in a terminal:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ssh-vault -u bob create vault.ssh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;vault.ssh is the name of the file that will be created with the encrypted
-content, instead of vault you could use something like vault.txt, bob.txt,
-etc.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Alice know that Bob has an account in github.com therefore by using the option
-&lt;code&gt;-u bob&lt;/code&gt;, Alice gets Bob&amp;rsquo;s ssh-rsa public key&lt;/p&gt;
-
-&lt;p&gt;In case Alice want&amp;rsquo;s to use a different key, could do:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ssh-vault -k /path/to/bob/id_rsa.pub create vault.ssh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;edit-view-a-vault-decryption&#34;&gt;Edit/View a vault (decryption)&lt;/h1&gt;
-
-&lt;p&gt;Bob can use his sha-rsa private key to decrypt the vault by doing:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ssh-vault view vault.ssh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;He will be prompted for his ssh-key private password if required or if he wants to use
-another private key, he do something like:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ssh-vault -k ~/.ssh/id_rsa_other view vault.ssh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If Bob would like to send something back to Alice, he would do:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ssh-vault -u alice create vault.ssh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;But if Alice has more than 2 keys and Bob would like to create a vault using the
-second key, this could be done:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ssh-vault -u alice -k 2 create vault.ssh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;when using the option -u, the -k N option is used for specifying what key to
-use, in where N is the index of the list of available keys&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&#34;shared-vault&#34;&gt;Shared vault&lt;/h1&gt;
-
-&lt;p&gt;In case a team needs to share a vault, the best way could be to share the pair
-of ssh keys (public/private) within the team members.&lt;/p&gt;
-</description>
+      <description>ssh-vault will randomly create a password and use it for encrypting the contents of the vault using a symmetric cipher AES256, the password later will be encrypted using the ssh-rsa public key of the receiver.
+ https://en.wikipedia.org/wiki/Pretty_Good_Privacy
+ This simplify the share of sensitive data across developers, teams, or either to store things on a public repository by just using ssh keys.
+The option -u username will fetch the receiver ssh-rsa public from github:</description>
     </item>
     
     <item>
@@ -209,44 +61,11 @@ of ssh keys (public/private) within the team members.&lt;/p&gt;
       <pubDate>Tue, 20 Sep 2016 03:59:30 +0000</pubDate>
       
       <guid>https://ssh-vault.com/post/u-option/</guid>
-      <description>
-
-&lt;h1 id=&#34;u-username&#34;&gt;-u &lt;username&gt;&lt;/h1&gt;
-
-&lt;p&gt;The option &lt;code&gt;-u&lt;/code&gt; is used for fetching the ssh-rsa public keys, when passing a
-username for example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ssh-vault -u alice
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;It will try to fetch the keys from github.com.&lt;/p&gt;
-
-&lt;h1 id=&#34;u-https&#34;&gt;-u https://&amp;hellip;&lt;/h1&gt;
-
-&lt;p&gt;In case the keys are not in github, and url can be passed, for example:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ssh-vault -u https://launchpad.net/~user/+sshkeys
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Using gitlab:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ssh-vault -u https://gitlab.com/&amp;lt;user&amp;gt;.keys
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;k-n&#34;&gt;-k N&lt;/h1&gt;
-
-&lt;p&gt;There may be cases where the user has more than one key in this keys the
-option &lt;code&gt;-k&lt;/code&gt; helps to specify what key to use, for example if we want to send
-something to user bob using his second key, this would be used:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ssh-vault -u bob -k 2 create file
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;or&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ssh-vault -u https://launchpad.net/~bob/+sshkeys -k 2 create file
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>-u  The option -u is used for fetching the ssh-rsa public keys, when passing a username for example:
+$ ssh-vault -u alice  It will try to fetch the keys from github.com.
+-u https://&amp;hellip; In case the keys are not in github, and url can be passed, for example:
+$ ssh-vault -u https://launchpad.net/~user/+sshkeys  Using gitlab:
+$ ssh-vault -u https://gitlab.com/&amp;lt;user&amp;gt;.keys  -k N There may be cases where the user has more than one key in this keys the option -k helps to specify what key to use, for example if we want to send something to user bob using his second key, this would be used:</description>
     </item>
     
     <item>
@@ -255,49 +74,11 @@ something to user bob using his second key, this would be used:&lt;/p&gt;
       <pubDate>Tue, 20 Sep 2016 03:59:00 +0000</pubDate>
       
       <guid>https://ssh-vault.com/post/fingerprint/</guid>
-      <description>
-
-&lt;h1 id=&#34;ssh-key-fingerprint&#34;&gt;SSH key fingerprint&lt;/h1&gt;
-
-&lt;p&gt;&lt;strong&gt;ssh-vault&lt;/strong&gt; can be used to print the ssh key
-&lt;a href=&#34;https://en.wikipedia.org/wiki/Public_key_fingerprint&#34;&gt;fingerprint&lt;/a&gt;
-compatible with the format that &lt;a href=&#34;https://aws.amazon.com/&#34;&gt;AWS&lt;/a&gt; uses.&lt;/p&gt;
-
-&lt;p&gt;To get the fingerprint for the key &lt;code&gt;~/.ssh/id_rsa.pub&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ssh-vault -f
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;For example to get the fingerprint for user Bob this could be used:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ssh-vault -u bob -f
-24:c6:6f:33:49:de:d7:bb:77:cf:e9:78:4c:e9:25:5f
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Using -u for remote server:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ssh-vault -u https://gitlab.com/bob.keys -f
-f8:33:95:0e:6e:35:93:39:18:cf:af:0d:34:5a:34:df
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Or for a key that locally stored:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ssh-vault -k /path/to/key -f
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;When using the option &lt;code&gt;-u username&lt;/code&gt; if the user has multiple keys and the
-fingerprint for key 2 is required, this can be used:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ssh-vault -u bob -k 2 -f
-a9:55:9b:e3:02:1e:21:a8:2c:f0:29:50:b3:5d:da:bc
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Using a remote server and key numer 2:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ssh-vault -u https://gitlab.com/bob.keys -k 2 -f
-2a:a9:bf:d2:8b:41:6e:bf:f8:b3:56:d5:90:28:33:44
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>SSH key fingerprint ssh-vault can be used to print the ssh key fingerprint compatible with the format that AWS uses.
+To get the fingerprint for the key ~/.ssh/id_rsa.pub:
+$ ssh-vault -f  For example to get the fingerprint for user Bob this could be used:
+$ ssh-vault -u bob -f 24:c6:6f:33:49:de:d7:bb:77:cf:e9:78:4c:e9:25:5f  Using -u for remote server:
+$ ssh-vault -u https://gitlab.com/bob.keys -f f8:33:95:0e:6e:35:93:39:18:cf:af:0d:34:5a:34:df  Or for a key that locally stored:</description>
     </item>
     
     <item>
@@ -306,60 +87,9 @@ a9:55:9b:e3:02:1e:21:a8:2c:f0:29:50:b3:5d:da:bc
       <pubDate>Tue, 20 Sep 2016 03:58:37 +0000</pubDate>
       
       <guid>https://ssh-vault.com/post/create-vault-from-stdin/</guid>
-      <description>
-
-&lt;p&gt;&lt;a href=&#34;https://asciinema.org/a/105690&#34;&gt;&lt;img src=&#34;https://asciinema.org/a/105690.png&#34; alt=&#34;asciicast&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;ssh-vault&lt;/strong&gt; can read from standard input
-&lt;a href=&#34;https://en.wikipedia.org/wiki/Standard_streams#Standard_input_.28stdin.29&#34;&gt;(stdin)&lt;/a&gt;
-when creating a vault.&lt;/p&gt;
-
-&lt;p&gt;Instead of creating a vault from scratch, a vault can be created by using an
-existing file, for example if Alice wants to send a file to Bob she could so
-something like:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cat /path/to/file | ssh-vault -u bob create bobs.vault
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;you can choose any name you want for the vault, in this example the vault contents will be written to file &lt;code&gt;bobs.vault&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h1 id=&#34;on-the-fly&#34;&gt;on the fly&lt;/h1&gt;
-
-&lt;p&gt;In case you just want to send a simple string/password this can be used:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;echo &amp;quot;secret&amp;quot; | ssh-vault -u bob create
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;notice that no vault was defined this means that output will be STDOUT&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;On a mac you could do this one-liner in order to have the output on the clipboard:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;echo &amp;quot;secret&amp;quot; | ssh-vault -u bob create | pbcopy
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;view-stdin&#34;&gt;view stdin&lt;/h1&gt;
-
-&lt;p&gt;If some one send you a vault you can pass directly to ssh-vault and view it:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;echo &amp;quot;SSH-VAULT;AES256;24:c6:6f:33:49:de:d7:bb:77:cf:e9:78:4c:e9:25:5f
-e4DHrRQlnv+KWzYipQUyu3xeOM5c1OmezgQaiIoEgEA2FlaK0YHYhOmj66hBa0SF
-yohpe9Y1F8HoVavpy2WgUWx+nJE+2Zj6UK4cU0FYhVdjs733rFaicUOW87LIsy9H
-r+2l+cGdGoboH/jw/asXegSccVhHSWHKyi0mvAuoh4yaEUpM9iYlQhfG75ABQh4k
-pFgJc++1QL/TCV/Hz8dzrfPzv9Xy57HEwnGKyx0grzFoV9pKVt2bS2BMPNQIZFlc
-j98aIMf6rPz8vmugjaxAeBDNHViwfr0I2cIw5n7qrgQXpFrcHiVgBJDtE9ck7EMO
-jNf3Y8QCYPBnLOVKCNwwIA==;Bnvo5I7XJWAKSeVV6i69PyGwMU7FznSAX5VqLQj
-o&amp;quot; | ssh-vault view
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;So for testing only purposes when using same key this should work:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;echo &amp;quot;secret&amp;quot; | ssh-vault -u bob create | ssh-vault view
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>ssh-vault can read from standard input (stdin) when creating a vault.
+Instead of creating a vault from scratch, a vault can be created by using an existing file, for example if Alice wants to send a file to Bob she could so something like:
+cat /path/to/file | ssh-vault -u bob create bobs.vault   you can choose any name you want for the vault, in this example the vault contents will be written to file bobs.</description>
     </item>
     
     <item>
@@ -368,35 +98,11 @@ o&amp;quot; | ssh-vault view
       <pubDate>Tue, 20 Sep 2016 03:56:00 +0000</pubDate>
       
       <guid>https://ssh-vault.com/post/group-encryption/</guid>
-      <description>&lt;p&gt;An approach for sharing a vault across a team would be:&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;ssh-vault is not properly designed for group/broadcast encryption, therefore,
-this approach may not be the best depending on your security requirements.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Have each group member own a public/private key pair.&lt;/p&gt;
-
-&lt;p&gt;Make a new group key pair and send it to each member within a vault.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    ssh-keygen -t rsa -b 4096 -C &amp;quot;group@acme.tld&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Send the key pair to each member in a secure way:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    cat group_keys | ssh-vault -u alice create vault.ssh
-    cat group_keys | ssh-vault -u bob create vault.ssh
-    ...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;To add a group member, send the key pair in a vault to it:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;    cat /group/keys | ssh-vault -u newb create vault.ssh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;To remove a group member, a new group key pair K need to be created and resend
-to the remaining group members.&lt;/p&gt;
-</description>
+      <description>An approach for sharing a vault across a team would be:
+ ssh-vault is not properly designed for group/broadcast encryption, therefore, this approach may not be the best depending on your security requirements.
+ Have each group member own a public/private key pair.
+Make a new group key pair and send it to each member within a vault.
+ ssh-keygen -t rsa -b 4096 -C &amp;quot;group@acme.tld&amp;quot;  Send the key pair to each member in a secure way:</description>
     </item>
     
   </channel>
