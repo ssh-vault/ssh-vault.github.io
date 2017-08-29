@@ -8,7 +8,7 @@
 		<meta name="description" content="encrypt/decrypt using ssh keys">
 		<meta name="keywords" content="encrypt, decrypt, ssh, rsa, openssl">
 		<meta name="generator" content="Hugo 0.26" />
-		<title>Group encryption &middot; ssh-vault</title>
+		<title>No ssh keys &middot; ssh-vault</title>
         <link rel="apple-touch-icon" sizes="57x57" href="https://ssh-vault.com/images/apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="https://ssh-vault.com/images/apple-touch-icon-60x60.png">
         <link rel="apple-touch-icon" sizes="72x72" href="https://ssh-vault.com/images/apple-touch-icon-72x72.png">
@@ -57,41 +57,84 @@
         <section id="wrapper">
             <article class="post">
                 <header>
-                    <h1>Group encryption</h1>
+                    <h1>No ssh keys</h1>
                     <h2 class="headline">
                     <br>
                     
                     </h2>
                 </header>
                 <section id="post-body">
-                    <p>An approach for sharing a vault across a team would be:</p>
+                    
+
+<h1 id="encrypt">encrypt</h1>
+
+<p>For sending/sharing a &ldquo;secret&rdquo; without knowing the receiver keys you could use
+the option <code>-u new</code>, example:</p>
+
+<pre><code>echo &quot;secret&quot; | ssh-vault -u new create
+</code></pre>
+
+<p>Or:</p>
+
+<pre><code>ssh-vault -u new create
+</code></pre>
+
+<p>The <code>new</code> key will create new pair of ssh keys (prublic/priate) using the
+service <a href="https://ssk-keys.online/new">https://ssk-keys.online/new</a>.</p>
+
+<p>You could create and user your own private server that generates ssh keys just
+need to pass the url to the <code>-u</code> option, for example:</p>
+
+<pre><code>echo &quot;secret&quot; | ssh-vault -u https://your-service/user-keys create
+</code></pre>
 
 <blockquote>
-<p>ssh-vault is not properly designed for group/broadcast encryption, therefore,
-this approach may not be the best depending on your security requirements.</p>
+<p><a href="https://your-service/user-keys">https://your-service/user-keys</a> should return the ssh-rsa key to use</p>
 </blockquote>
 
-<p>Have each group member own a public/private key pair.</p>
+<h1 id="decrypt">decrypt</h1>
 
-<p>Make a new group key pair and send it to each member within a vault.</p>
+<p>To decrypt using a remote key this can be used:</p>
 
-<pre><code>    ssh-keygen -t rsa -b 4096 -C &quot;group@acme.tld&quot;
+<pre><code>ssh-vault -k https://your-service/private-key view vault.ssh
 </code></pre>
 
-<p>Send the key pair to each member in a secure way:</p>
+<p>In this case the option <code>-k</code> accepts and URL in where it will try to fetch a
+private key, if you are creating a service do it in a way that replies a key in
+this way:</p>
 
-<pre><code>    cat group_keys | ssh-vault -u alice create vault.ssh
-    cat group_keys | ssh-vault -u bob create vault.ssh
-    ...
+<pre><code>-----BEGIN RSA PRIVATE KEY-----
+MIICWwIBAAKBgQDnPMfrANNnnZcMrclmlrKqhdNE47V5IDrAg6IU9OXrG4EP60pg
+...
+s3LoekK6//PwnE48oZ6Wbm3sG+pPU37UMishS8owaw==
+-----END RSA PRIVATE KEY-----
 </code></pre>
 
-<p>To add a group member, send the key pair in a vault to it:</p>
+<p>If when encrypting you are using the option <code>-u new</code> for example:</p>
 
-<pre><code>    cat /group/keys | ssh-vault -u newb create vault.ssh
+<pre><code>$ echo &quot;secret&quot; | ssh-vault -u new create
+SSH-VAULT;AES256;21:88:f0:73:a0:5d:43:4d:e4:16:1a:e6:80:21:e7:80
+JLJ3shvUvNHNbxquh7cKJcqHaq/pXhbv2wD7s35Lc46vex2YygYoBnGcgGFcgEM4
+caCy4CPnTGaN/qxfzPW8mzpYuj2ALYLu8JOnENVjemsBJbzzxAWGPJXXBZmWyNli
+XCnPXuSA/B7JbY2/DrcWE6W5PE1kmVxfsO3nP/JtMIM=;G6s1hUCA8yqFKE3aug0
+bHxoi2OFx8ThBYvXU/39KYViv42Y=
 </code></pre>
 
-<p>To remove a group member, a new group key pair K need to be created and resend
-to the remaining group members.</p>
+<p>For decrypting you need to use the fingerprint when using option <code>-k</code>, example:</p>
+
+<pre><code>ssh-vault -k https://ssh-keys.online/21:88:f0:73:a0:5d:43:4d:e4:16:1a:e6:80:21:e7:80 view /path/to/vault.ssh
+</code></pre>
+
+<p>The <a href="https://ssh-keys.online">https://ssh-keys.online</a> service will provide the private key for the
+specified fingerprint and use it for decrypt the vault.</p>
+
+<p>In the same way a custom private server could be created.</p>
+
+<h1 id="security-concerns">security concerns</h1>
+
+<p>It is important to know and understand that by using any 3rd party service for
+generating the public/private keys breaks the concept of privacy and security if
+possible they should be avoided.</p>
 
                 </section>
             </article>
@@ -99,7 +142,7 @@ to the remaining group members.</p>
                 
                     
                 <section id="sharing">
-                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fssh-vault.com%2fpost%2fgroup-encryption%2f - Group%20encryption "><span class="icon-twitter"> Tweet</span></a>
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fssh-vault.com%2fpost%2fno-ssh-keys%2f - No%20ssh%20keys "><span class="icon-twitter"> Tweet</span></a>
 
 <a class="facebook" href="#" onclick="
     window.open(
