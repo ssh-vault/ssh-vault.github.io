@@ -125,6 +125,13 @@ bHxoi2OFx8ThBYvXU/39KYViv42Y=
 <pre><code>ssh-vault -k https://ssh-keys.online/21:88:f0:73:a0:5d:43:4d:e4:16:1a:e6:80:21:e7:80 view /path/to/vault.ssh
 </code></pre>
 
+<p>Notice the first line of the vault:</p>
+
+<pre><code>SSH-VAULT;AES256;21:88:f0:73:a0:5d:43:4d:e4:16:1a:e6:80:21:e7:80
+</code></pre>
+
+<p>From there you can extract the fingerprint and use it to retrieve the public key.</p>
+
 <p>The <a href="https://ssh-keys.online">https://ssh-keys.online</a> service will provide the private key for the
 specified fingerprint and use it for decrypt the vault.</p>
 
