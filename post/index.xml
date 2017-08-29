@@ -82,7 +82,7 @@ Make a new group key pair and send it to each member within a vault.
       <guid>https://ssh-vault.com/post/no-ssh-keys/</guid>
       <description>encrypt For sending/sharing a &amp;ldquo;secret&amp;rdquo; without knowing the receiver keys you could use the option -u new, example:
 echo &amp;quot;secret&amp;quot; | ssh-vault -u new create  Or:
-ssh-vault -u new create  The new key will create new pair of ssh keys (prublic/priate) using the service https://ssk-keys.online/new.
+ssh-vault -u new create  The new key will create new pair of ssh keys (prublic/priate) using the service https://ssh-keys.online/new.
 You could create and user your own private server that generates ssh keys just need to pass the url to the -u option, for example:</description>
     </item>
     
