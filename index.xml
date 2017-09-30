@@ -19,7 +19,6 @@
       
       <guid>https://ssh-vault.com/mac/</guid>
       <description>To install ssh-vault on Mac OS X:
-$ brew tap ssh-vault/tap  Next:
 $ brew install ssh-vault  </description>
     </item>
     
