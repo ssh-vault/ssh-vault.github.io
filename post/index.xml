@@ -56,8 +56,9 @@ $ ssh-vault -u https://gitlab.com/bob.keys -f f8:33:95:0e:6e:35:93:39:18:cf:af:0
       
       <guid>https://ssh-vault.com/post/create-vault-from-stdin/</guid>
       <description>ssh-vault can read from standard input (stdin) when creating a vault.
-Instead of creating a vault from scratch, a vault can be created by using an existing file, for example if Alice wants to send a file to Bob she could so something like:
-cat /path/to/file | ssh-vault -u bob create bobs.vault   you can choose any name you want for the vault, in this example the vault contents will be written to file bobs.</description>
+Instead of creating a vault from scratch, a vault can be created by using an existing file, for example if Alice wants to send a file (txt, pdf, jpg) to Bob she could so something like:
+ssh-vault -u bob create &amp;lt; /path/to/file &amp;gt; bobs.vault  or
+cat /path/to/file | ssh-vault -u bob create bobs.vault  To restore the file for example my.</description>
     </item>
     
     <item>
