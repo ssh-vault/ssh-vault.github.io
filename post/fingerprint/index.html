@@ -7,7 +7,7 @@
 		<meta name="author" content="ssh-vault">
 		<meta name="description" content="encrypt/decrypt using ssh keys">
 		<meta name="keywords" content="encrypt, decrypt, ssh, rsa, openssl, vault">
-		<meta name="generator" content="Hugo 0.54.0" />
+		<meta name="generator" content="Hugo 0.62.2" />
 		<title>Fingerprint &middot; ssh-vault</title>
         <link rel="apple-touch-icon" sizes="57x57" href="https://ssh-vault.com/images/apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="https://ssh-vault.com/images/apple-touch-icon-60x60.png">
@@ -64,45 +64,30 @@
                     </h2>
                 </header>
                 <section id="post-body">
-                    
-
-<h1 id="ssh-key-fingerprint">SSH key fingerprint</h1>
-
+                    <h1 id="ssh-key-fingerprint">SSH key fingerprint</h1>
 <p><strong>ssh-vault</strong> can be used to print the ssh key
 <a href="https://en.wikipedia.org/wiki/Public_key_fingerprint">fingerprint</a>
 compatible with the format that <a href="https://aws.amazon.com/">AWS</a> uses.</p>
-
 <p>To get the fingerprint for the key <code>~/.ssh/id_rsa.pub</code>:</p>
-
 <pre><code>$ ssh-vault -f
 </code></pre>
-
 <p>For example to get the fingerprint for user Bob this could be used:</p>
-
 <pre><code>$ ssh-vault -u bob -f
 24:c6:6f:33:49:de:d7:bb:77:cf:e9:78:4c:e9:25:5f
 </code></pre>
-
 <p>Using -u for remote server:</p>
-
 <pre><code>$ ssh-vault -u https://gitlab.com/bob.keys -f
 f8:33:95:0e:6e:35:93:39:18:cf:af:0d:34:5a:34:df
 </code></pre>
-
 <p>Or for a key that locally stored:</p>
-
 <pre><code>$ ssh-vault -k /path/to/key -f
 </code></pre>
-
 <p>When using the option <code>-u username</code> if the user has multiple keys and the
 fingerprint for key 2 is required, this can be used:</p>
-
 <pre><code>$ ssh-vault -u bob -k 2 -f
 a9:55:9b:e3:02:1e:21:a8:2c:f0:29:50:b3:5d:da:bc
 </code></pre>
-
 <p>Using a remote server and key numer 2:</p>
-
 <pre><code>$ ssh-vault -u https://gitlab.com/bob.keys -k 2 -f
 2a:a9:bf:d2:8b:41:6e:bf:f8:b3:56:d5:90:28:33:44
 </code></pre>
@@ -152,11 +137,25 @@ a9:55:9b:e3:02:1e:21:a8:2c:f0:29:50:b3:5d:da:bc
     
     
         
+        <li>
+            <a href="https://ssh-vault.com/">ssh-vault</a>
+        </li>
+        
+   
+    
+        
    
     
         
         <li>
             <a href="https://ssh-vault.com/post/how-it-works/">How it works</a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://ssh-vault.com/post/">Posts</a>
         </li>
         
    
@@ -198,21 +197,7 @@ a9:55:9b:e3:02:1e:21:a8:2c:f0:29:50:b3:5d:da:bc
     
         
         <li>
-            <a href="https://ssh-vault.com/post/">Posts</a>
-        </li>
-        
-   
-    
-        
-        <li>
             <a href="https://ssh-vault.com/tags/">Tags</a>
-        </li>
-        
-   
-    
-        
-        <li>
-            <a href="https://ssh-vault.com/">ssh-vault</a>
         </li>
         
    

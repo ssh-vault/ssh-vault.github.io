@@ -7,7 +7,7 @@
 		<meta name="author" content="ssh-vault">
 		<meta name="description" content="encrypt/decrypt using ssh keys">
 		<meta name="keywords" content="encrypt, decrypt, ssh, rsa, openssl, vault">
-		<meta name="generator" content="Hugo 0.54.0" />
+		<meta name="generator" content="Hugo 0.62.2" />
 		<title>-u &lt;username&gt; or -u URL &middot; ssh-vault</title>
         <link rel="apple-touch-icon" sizes="57x57" href="https://ssh-vault.com/images/apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="https://ssh-vault.com/images/apple-touch-icon-60x60.png">
@@ -64,41 +64,26 @@
                     </h2>
                 </header>
                 <section id="post-body">
-                    
-
-<h1 id="u-username">-u <username></h1>
-
+                    <h1 id="-u-username">-u <!-- raw HTML omitted --></h1>
 <p>The option <code>-u</code> is used for fetching the ssh-rsa public keys, when passing a
 username for example:</p>
-
 <pre><code>$ ssh-vault -u alice
 </code></pre>
-
 <p>It will try to fetch the keys from github.com.</p>
-
-<h1 id="u-https">-u https://&hellip;</h1>
-
+<h1 id="-u-https">-u https://&hellip;</h1>
 <p>In case the keys are not in github, and url can be passed, for example:</p>
-
 <pre><code>$ ssh-vault -u https://launchpad.net/~user/+sshkeys
 </code></pre>
-
 <p>Using gitlab:</p>
-
 <pre><code>$ ssh-vault -u https://gitlab.com/&lt;user&gt;.keys
 </code></pre>
-
-<h1 id="k-n">-k N</h1>
-
+<h1 id="-k-n">-k N</h1>
 <p>There may be cases where the user has more than one key in this keys the
 option <code>-k</code> helps to specify what key to use, for example if we want to send
 something to user bob using his second key, this would be used:</p>
-
 <pre><code>$ ssh-vault -u bob -k 2 create file
 </code></pre>
-
 <p>or</p>
-
 <pre><code>$ ssh-vault -u https://launchpad.net/~bob/+sshkeys -k 2 create file
 </code></pre>
 
@@ -147,11 +132,25 @@ something to user bob using his second key, this would be used:</p>
     
     
         
+        <li>
+            <a href="https://ssh-vault.com/">ssh-vault</a>
+        </li>
+        
+   
+    
+        
    
     
         
         <li>
             <a href="https://ssh-vault.com/post/how-it-works/">How it works</a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://ssh-vault.com/post/">Posts</a>
         </li>
         
    
@@ -193,21 +192,7 @@ something to user bob using his second key, this would be used:</p>
     
         
         <li>
-            <a href="https://ssh-vault.com/post/">Posts</a>
-        </li>
-        
-   
-    
-        
-        <li>
             <a href="https://ssh-vault.com/tags/">Tags</a>
-        </li>
-        
-   
-    
-        
-        <li>
-            <a href="https://ssh-vault.com/">ssh-vault</a>
         </li>
         
    

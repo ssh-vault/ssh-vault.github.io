@@ -7,7 +7,7 @@
 		<meta name="author" content="ssh-vault">
 		<meta name="description" content="encrypt/decrypt using ssh keys">
 		<meta name="keywords" content="encrypt, decrypt, ssh, rsa, openssl, vault">
-		<meta name="generator" content="Hugo 0.54.0" />
+		<meta name="generator" content="Hugo 0.62.2" />
 		<title>Create vault from stdin &middot; ssh-vault</title>
         <link rel="apple-touch-icon" sizes="57x57" href="https://ssh-vault.com/images/apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="https://ssh-vault.com/images/apple-touch-icon-60x60.png">
@@ -64,55 +64,36 @@
                     </h2>
                 </header>
                 <section id="post-body">
-                    
-
-<p><a href="https://asciinema.org/a/105690"><img src="https://asciinema.org/a/105690.png" alt="asciicast" /></a></p>
-
+                    <p><a href="https://asciinema.org/a/105690"><img src="https://asciinema.org/a/105690.png" alt="asciicast"></a></p>
 <p><strong>ssh-vault</strong> can read from standard input
 <a href="https://en.wikipedia.org/wiki/Standard_streams#Standard_input_.28stdin.29">(stdin)</a>
 when creating a vault.</p>
-
 <p>Instead of creating a vault from scratch, a vault can be created by using an
 existing file, for example if Alice wants to send a file (txt, pdf, jpg) to Bob
 she could so something like:</p>
-
 <pre><code>ssh-vault -u bob create &lt; /path/to/file &gt; bobs.vault
 </code></pre>
-
 <p>or</p>
-
 <pre><code>cat /path/to/file | ssh-vault -u bob create bobs.vault
 </code></pre>
-
 <p>To restore the file for example <code>my.pdf</code>:</p>
-
 <pre><code>ssh-vault -o /path/to/my.pdf view bobs.vault
 </code></pre>
-
 <blockquote>
 <p>you can choose any name you want for the vault, in this example the vault contents will be written to file <code>bobs.vault</code></p>
 </blockquote>
-
 <h1 id="on-the-fly">on the fly</h1>
-
 <p>In case you just want to send a simple string/password this can be used:</p>
-
 <pre><code>echo &quot;secret&quot; | ssh-vault -u bob create
 </code></pre>
-
 <blockquote>
 <p>notice that no vault was defined this means that output will be STDOUT</p>
 </blockquote>
-
 <p>On a mac you could do this one-liner in order to have the output on the clipboard:</p>
-
 <pre><code>echo &quot;secret&quot; | ssh-vault -u bob create | pbcopy
 </code></pre>
-
 <h1 id="view-stdin">view stdin</h1>
-
 <p>If some one send you a vault you can pass directly to ssh-vault and view it:</p>
-
 <pre><code>echo &quot;SSH-VAULT;AES256;24:c6:6f:33:49:de:d7:bb:77:cf:e9:78:4c:e9:25:5f
 e4DHrRQlnv+KWzYipQUyu3xeOM5c1OmezgQaiIoEgEA2FlaK0YHYhOmj66hBa0SF
 yohpe9Y1F8HoVavpy2WgUWx+nJE+2Zj6UK4cU0FYhVdjs733rFaicUOW87LIsy9H
@@ -122,10 +103,8 @@ j98aIMf6rPz8vmugjaxAeBDNHViwfr0I2cIw5n7qrgQXpFrcHiVgBJDtE9ck7EMO
 jNf3Y8QCYPBnLOVKCNwwIA==;Bnvo5I7XJWAKSeVV6i69PyGwMU7FznSAX5VqLQj
 o&quot; | ssh-vault view
 </code></pre>
-
 <p>So for testing only purposes when using same key this should work (if ssh-key
 has no password):</p>
-
 <pre><code>echo &quot;secret&quot; | ssh-vault -u bob create | ssh-vault view
 </code></pre>
 
@@ -174,11 +153,25 @@ has no password):</p>
     
     
         
+        <li>
+            <a href="https://ssh-vault.com/">ssh-vault</a>
+        </li>
+        
+   
+    
+        
    
     
         
         <li>
             <a href="https://ssh-vault.com/post/how-it-works/">How it works</a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://ssh-vault.com/post/">Posts</a>
         </li>
         
    
@@ -220,21 +213,7 @@ has no password):</p>
     
         
         <li>
-            <a href="https://ssh-vault.com/post/">Posts</a>
-        </li>
-        
-   
-    
-        
-        <li>
             <a href="https://ssh-vault.com/tags/">Tags</a>
-        </li>
-        
-   
-    
-        
-        <li>
-            <a href="https://ssh-vault.com/">ssh-vault</a>
         </li>
         
    

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ssh-vault</title>
@@ -101,7 +101,7 @@ cat /path/to/file | ssh-vault -u bob create bobs.vault  To restore the file for 
  ssh-vault is not properly designed for group/broadcast encryption, therefore, this approach may not be the best depending on your security requirements.
  Have each group member own a public/private key pair.
 Make a new group key pair and send it to each member within a vault.
- ssh-keygen -t rsa -b 4096 -C &amp;quot;group@acme.tld&amp;quot;  Send the key pair to each member in a secure way:</description>
+ ssh-keygen -t rsa -b 4096 -C &amp;quot;group@acme.tld&amp;quot; Send the key pair to each member in a secure way:</description>
     </item>
     
     <item>

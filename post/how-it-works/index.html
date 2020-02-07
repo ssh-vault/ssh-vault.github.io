@@ -7,7 +7,7 @@
 		<meta name="author" content="ssh-vault">
 		<meta name="description" content="encrypt/decrypt using ssh keys">
 		<meta name="keywords" content="encrypt, decrypt, ssh, rsa, openssl, vault">
-		<meta name="generator" content="Hugo 0.54.0" />
+		<meta name="generator" content="Hugo 0.62.2" />
 		<title>How it works &middot; ssh-vault</title>
         <link rel="apple-touch-icon" sizes="57x57" href="https://ssh-vault.com/images/apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="https://ssh-vault.com/images/apple-touch-icon-60x60.png">
@@ -64,100 +64,68 @@
                     </h2>
                 </header>
                 <section id="post-body">
-                    
-
-<p><strong>ssh-vault</strong> will randomly create a password and use it
+                    <p><strong>ssh-vault</strong> will randomly create a password and use it
 for encrypting the contents of the vault using a
 <a href="https://en.wikipedia.org/wiki/Symmetric-key_algorithm">symmetric cipher</a>
 AES256, the password later will be encrypted using the
 <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">ssh-rsa</a> public key of the
 receiver.</p>
-
-<p><img src="/img/PGP_diagram.svg" alt="img" /></p>
-
+<p><img src="/img/PGP_diagram.svg" alt="img"></p>
 <blockquote>
 <p><a href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy">https://en.wikipedia.org/wiki/Pretty_Good_Privacy</a></p>
 </blockquote>
-
 <p>This simplify the share of sensitive data across developers, teams, or either to
 store things on a public repository by just using ssh keys.</p>
-
 <p>The option <a href="/post/u-option/">-u username</a> will fetch the receiver ssh-rsa
 public from github:</p>
-
 <pre><code> https://github.com/&lt;username&gt;.keys
 </code></pre>
-
 <p>Using -u:</p>
-
 <pre><code>$ ssh-vault -u https://gitlab.com/&lt;user&gt;.keys
 </code></pre>
-
 <p>This helps to create a vault very straight forward, since both the sender and
-receiver don&rsquo;t need to exchange their keys before in order to share sensitive
+receiver don't need to exchange their keys before in order to share sensitive
 data, therefore this helps to work asynchronously</p>
-
 <p>The current requirement for using the option <code>-u &lt;username&gt;</code>
 is to have an github.com account with a SSH key, more info here:
 <a href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/">https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/</a></p>
-
 <p>An <a href="https://en.wikipedia.org/wiki/Alice_and_Bob">Alice and Bob</a> example could be
 the best way to undestand how ssh-vault works.</p>
-
 <h1 id="creating-a-vault-encryption">Creating a vault (encryption)</h1>
-
-<p><a href="https://asciinema.org/a/105473"><img src="https://asciinema.org/a/105473.png" alt="asciicast" /></a></p>
-
+<p><a href="https://asciinema.org/a/105473"><img src="https://asciinema.org/a/105473.png" alt="asciicast"></a></p>
 <p>If Alice wants to send something to Bob, Alice will type in a terminal:</p>
-
 <pre><code>$ ssh-vault -u bob create vault.ssh
 </code></pre>
-
 <blockquote>
 <p>vault.ssh is the name of the file that will be created with the encrypted
 content, instead of vault you could use something like vault.txt, bob.txt,
 etc.</p>
 </blockquote>
-
 <p>Alice know that Bob has an account in github.com therefore by using the option
-<code>-u bob</code>, Alice gets Bob&rsquo;s ssh-rsa public key</p>
-
-<p>In case Alice want&rsquo;s to use a different key, could do:</p>
-
+<code>-u bob</code>, Alice gets Bob's ssh-rsa public key</p>
+<p>In case Alice want's to use a different key, could do:</p>
 <pre><code>$ ssh-vault -k /path/to/bob/id_rsa.pub create vault.ssh
 </code></pre>
-
-<h1 id="edit-view-a-vault-decryption">Edit/View a vault (decryption)</h1>
-
+<h1 id="editview-a-vault-decryption">Edit/View a vault (decryption)</h1>
 <p>Bob can use his sha-rsa private key to decrypt the vault by doing:</p>
-
 <pre><code>$ ssh-vault view vault.ssh
 </code></pre>
-
 <p>He will be prompted for his ssh-key private password if required or if he wants to use
 another private key, he do something like:</p>
-
 <pre><code>$ ssh-vault -k ~/.ssh/id_rsa_other view vault.ssh
 </code></pre>
-
 <p>If Bob would like to send something back to Alice, he would do:</p>
-
 <pre><code>$ ssh-vault -u alice create vault.ssh
 </code></pre>
-
 <p>But if Alice has more than 2 keys and Bob would like to create a vault using the
 second key, this could be done:</p>
-
 <pre><code>$ ssh-vault -u alice -k 2 create vault.ssh
 </code></pre>
-
 <blockquote>
 <p>when using the option -u, the -k N option is used for specifying what key to
 use, in where N is the index of the list of available keys</p>
 </blockquote>
-
 <h1 id="shared-vault">Shared vault</h1>
-
 <p>In case a team needs to share a vault, the best way could be to share the pair
 of ssh keys (public/private) within the team members.</p>
 
@@ -206,11 +174,25 @@ of ssh keys (public/private) within the team members.</p>
     
     
         
+        <li>
+            <a href="https://ssh-vault.com/">ssh-vault</a>
+        </li>
+        
+   
+    
+        
    
     
         
         <li>
             <a href="https://ssh-vault.com/post/how-it-works/">How it works</a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://ssh-vault.com/post/">Posts</a>
         </li>
         
    
@@ -252,21 +234,7 @@ of ssh keys (public/private) within the team members.</p>
     
         
         <li>
-            <a href="https://ssh-vault.com/post/">Posts</a>
-        </li>
-        
-   
-    
-        
-        <li>
             <a href="https://ssh-vault.com/tags/">Tags</a>
-        </li>
-        
-   
-    
-        
-        <li>
-            <a href="https://ssh-vault.com/">ssh-vault</a>
         </li>
         
    

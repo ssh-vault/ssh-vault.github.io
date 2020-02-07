@@ -7,7 +7,7 @@
 		<meta name="author" content="ssh-vault">
 		<meta name="description" content="encrypt/decrypt using ssh keys">
 		<meta name="keywords" content="encrypt, decrypt, ssh, rsa, openssl, vault">
-		<meta name="generator" content="Hugo 0.54.0" />
+		<meta name="generator" content="Hugo 0.62.2" />
 		<title>🌰  ssh-vault &middot; ssh-vault</title>
         <link rel="apple-touch-icon" sizes="57x57" href="https://ssh-vault.com/images/apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="https://ssh-vault.com/images/apple-touch-icon-60x60.png">
@@ -60,52 +60,38 @@
                     </h2>
                 </header>
                 <section id="post-body">
-                    
-
-<h1 id="what-is-ssh-vault">What is ssh-vault?</h1>
-
+                    <h1 id="what-is-ssh-vault">What is ssh-vault?</h1>
 <p>A command line tool (cli) for creating encrypted files &ldquo;vaults&rdquo; using ssh
 <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">rsa</a> keys for encrypt/decrypt.</p>
-
 <p>A vault password is encrypted using the public ssh key of the receiver and
 the main data of the vault using AES256, in order to see/decrypt the vault
 contents, the receiver will need to use his private key &amp; password in case of
 needed to be available to edit/view the contents.</p>
-
 <p>You can learn more about generating an SSH key here:
 <a href="https://help.github.com/articles/generating-an-ssh-key/">https://help.github.com/articles/generating-an-ssh-key/</a></p>
-
-<h2 id="why">Why ?</h2>
-
+<h2 id="why-">Why ?</h2>
 <p>Because of the need to share sensitive data without the need to share a password.</p>
-
 <p>When working with multiple teams either for testing or for deploying something
 at one point there is always the need to share a database password, HTTP auth
 credentials, tokens etc; the most common way of doing this is by just sending
 the “secret” plan within any chat.</p>
-
 <p>In many cases the use <a href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy">PGP</a>
 is required but this take a time to exchange public keys, besides certain
 knowledge and understanding is required in order to properly exchange the
 “secret”.</p>
-
 <p>Here is when ssh-vault comes into action, follow the same principle of PGP but
 simplifies the exchange process, therefore, helps to exchange “secrets” fast and
 in a secure way.</p>
-
 <p>The exchange off the public keys is done or taken granted from the existing
 <a href="https://en.wikipedia.org/wiki/Version_control">version control system</a> used in the team,
 by default ssh-vault defaults to <a href="https://github.com">Github</a>.</p>
-
 <p>Basically <strong>ssh-vault</strong> delegates the pre-sharing phase of the keys to the
 version control system, at the end if <code>user A</code> wants so send something to
 <code>user B</code> and both use the Github for example, it is straight forward to just
 send a secure &ldquo;secret&rdquo; without need to pre-handshake:</p>
-
 <pre><code>echo &quot;secret&quot; | ssh-vault -u alice create
 </code></pre>
-
-<p><a href="https://asciinema.org/a/105690"><img src="https://asciinema.org/a/105690.png" alt="asciicast" /></a></p>
+<p><a href="https://asciinema.org/a/105690"><img src="https://asciinema.org/a/105690.png" alt="asciicast"></a></p>
 
                 </section>
             </article>
@@ -152,11 +138,25 @@ send a secure &ldquo;secret&rdquo; without need to pre-handshake:</p>
     
     
         
+        <li>
+            <a href="https://ssh-vault.com/">ssh-vault</a>
+        </li>
+        
+   
+    
+        
    
     
         
         <li>
             <a href="https://ssh-vault.com/post/how-it-works/">How it works</a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://ssh-vault.com/post/">Posts</a>
         </li>
         
    
@@ -198,21 +198,7 @@ send a secure &ldquo;secret&rdquo; without need to pre-handshake:</p>
     
         
         <li>
-            <a href="https://ssh-vault.com/post/">Posts</a>
-        </li>
-        
-   
-    
-        
-        <li>
             <a href="https://ssh-vault.com/tags/">Tags</a>
-        </li>
-        
-   
-    
-        
-        <li>
-            <a href="https://ssh-vault.com/">ssh-vault</a>
         </li>
         
    
