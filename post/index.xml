@@ -6,11 +6,7 @@
     <description>Recent content in Posts on ssh-vault</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 Sep 2016 04:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://ssh-vault.com/post/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 20 Sep 2016 04:00:00 +0000</lastBuildDate><atom:link href="https://ssh-vault.com/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How it works</title>
       <link>https://ssh-vault.com/post/how-it-works/</link>

@@ -7,7 +7,7 @@
 		<meta name="author" content="ssh-vault">
 		<meta name="description" content="encrypt/decrypt using ssh keys">
 		<meta name="keywords" content="encrypt, decrypt, ssh, rsa, openssl, vault">
-		<meta name="generator" content="Hugo 0.62.2" />
+		<meta name="generator" content="Hugo 0.85.0" />
 		<title>How it works &middot; ssh-vault</title>
         <link rel="apple-touch-icon" sizes="57x57" href="https://ssh-vault.com/images/apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="https://ssh-vault.com/images/apple-touch-icon-60x60.png">
@@ -84,7 +84,7 @@ public from github:</p>
 <pre><code>$ ssh-vault -u https://gitlab.com/&lt;user&gt;.keys
 </code></pre>
 <p>This helps to create a vault very straight forward, since both the sender and
-receiver don't need to exchange their keys before in order to share sensitive
+receiver don&rsquo;t need to exchange their keys before in order to share sensitive
 data, therefore this helps to work asynchronously</p>
 <p>The current requirement for using the option <code>-u &lt;username&gt;</code>
 is to have an github.com account with a SSH key, more info here:
@@ -102,8 +102,8 @@ content, instead of vault you could use something like vault.txt, bob.txt,
 etc.</p>
 </blockquote>
 <p>Alice know that Bob has an account in github.com therefore by using the option
-<code>-u bob</code>, Alice gets Bob's ssh-rsa public key</p>
-<p>In case Alice want's to use a different key, could do:</p>
+<code>-u bob</code>, Alice gets Bob&rsquo;s ssh-rsa public key</p>
+<p>In case Alice want&rsquo;s to use a different key, could do:</p>
 <pre><code>$ ssh-vault -k /path/to/bob/id_rsa.pub create vault.ssh
 </code></pre>
 <h1 id="editview-a-vault-decryption">Edit/View a vault (decryption)</h1>
@@ -174,13 +174,6 @@ of ssh keys (public/private) within the team members.</p>
     
     
         
-        <li>
-            <a href="https://ssh-vault.com/">ssh-vault</a>
-        </li>
-        
-   
-    
-        
    
     
         
@@ -193,6 +186,13 @@ of ssh keys (public/private) within the team members.</p>
         
         <li>
             <a href="https://ssh-vault.com/post/">Posts</a>
+        </li>
+        
+   
+    
+        
+        <li>
+            <a href="https://ssh-vault.com/">ssh-vault</a>
         </li>
         
    
@@ -284,7 +284,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
     </body>
 </html>

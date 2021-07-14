@@ -1,64 +1,40 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://ssh-vault.com/mac/</loc>
     <lastmod>2017-03-06T21:24:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ssh-vault.com/freebsd/</loc>
     <lastmod>2017-03-06T21:24:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ssh-vault.com/</loc>
-    <lastmod>2017-03-06T21:24:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ssh-vault.com/about/</loc>
     <lastmod>2016-10-07T21:26:25+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ssh-vault.com/post/how-it-works/</loc>
     <lastmod>2016-09-20T04:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ssh-vault.com/post/</loc>
     <lastmod>2016-09-20T04:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://ssh-vault.com/</loc>
+    <lastmod>2016-09-20T04:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://ssh-vault.com/post/u-option/</loc>
     <lastmod>2016-09-20T03:59:30+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ssh-vault.com/post/fingerprint/</loc>
     <lastmod>2016-09-20T03:59:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ssh-vault.com/post/create-vault-from-stdin/</loc>
     <lastmod>2016-09-20T03:58:37+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ssh-vault.com/post/group-encryption/</loc>
     <lastmod>2016-09-20T03:56:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ssh-vault.com/post/no-ssh-keys/</loc>
     <lastmod>2016-09-20T03:55:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://ssh-vault.com/tags/</loc>
   </url>
-  
 </urlset>
